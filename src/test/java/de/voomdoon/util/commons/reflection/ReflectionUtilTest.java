@@ -1,4 +1,4 @@
-package de.voomdoon.util.commons;
+package de.voomdoon.util.commons.reflection;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -14,7 +14,7 @@ import de.voomdoon.util.commons.reflection.reflection.ReflectionUtil;
  *
  * @author André Schulz
  *
- * @since DOCME add inception version number
+ * @since 0.1.0
  */
 public class ReflectionUtilTest {
 
@@ -23,13 +23,13 @@ public class ReflectionUtilTest {
 	 *
 	 * @author André Schulz
 	 *
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	static class GetStaticFieldValueTest extends TestBase {
 
 		/**
 		 * @throws Exception
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_Color() throws Exception {

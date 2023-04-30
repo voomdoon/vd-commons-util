@@ -10,7 +10,7 @@ import lombok.experimental.UtilityClass;
  *
  * @author André Schulz
  *
- * @since DOCME add inception version number
+ * @since 0.1.0
  */
 @UtilityClass
 public class AwtParsingUtil {
@@ -21,7 +21,7 @@ public class AwtParsingUtil {
 	 * @param value
 	 *            {@link String}
 	 * @return {@link Color}
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	public static Color parseColor(final String value) {
 		return ReflectionUtil.getStaticFieldValue(Color.class, value, Color.class);

@@ -13,7 +13,7 @@ import de.voomdoon.testing.tests.TestBase;
  *
  * @author André Schulz
  *
- * @since DOCME add inception version number
+ * @since 0.1.0
  */
 public class AwtParsingUtilTest {
 
@@ -22,12 +22,12 @@ public class AwtParsingUtilTest {
 	 *
 	 * @author André Schulz
 	 *
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	static class ParseColorTest extends TestBase {
 
 		/**
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_Color() {

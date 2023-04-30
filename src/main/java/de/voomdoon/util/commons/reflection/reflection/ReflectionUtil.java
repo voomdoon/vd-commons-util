@@ -10,7 +10,7 @@ import lombok.experimental.UtilityClass;
  *
  * @author André Schulz
  *
- * @since DOCME add inception version number
+ * @since 0.1.0
  */
 @UtilityClass
 public class ReflectionUtil {
@@ -23,7 +23,7 @@ public class ReflectionUtil {
 	 * @param name
 	 * @param resultType
 	 * @return
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	public static <T> T getStaticFieldValue(Class<?> clazz, String name, Class<T> resultType) {
 		for (Field field : clazz.getFields()) {

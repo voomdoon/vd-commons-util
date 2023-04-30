@@ -7,7 +7,7 @@ import lombok.experimental.UtilityClass;
  *
  * @author André Schulz
  *
- * @since DOCME add inception version number
+ * @since 0.1.0
  */
 @UtilityClass
 public class ArrayParsingUtil {
@@ -17,7 +17,7 @@ public class ArrayParsingUtil {
 	 * 
 	 * @param string
 	 * @return
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	public static boolean[][] parseBooleanArray2(String string) {
 		String[] lines = string.split("\n");

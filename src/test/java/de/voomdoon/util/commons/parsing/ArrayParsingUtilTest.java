@@ -11,7 +11,7 @@ import de.voomdoon.testing.tests.TestBase;
  *
  * @author André Schulz
  *
- * @since DOCME add inception version number
+ * @since 0.1.0
  */
 public class ArrayParsingUtilTest {
 
@@ -20,12 +20,12 @@ public class ArrayParsingUtilTest {
 	 *
 	 * @author André Schulz
 	 *
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	static class ParseBooleanArray2Test extends TestBase {
 
 		/**
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		public void test_oneRow() {
@@ -36,7 +36,7 @@ public class ArrayParsingUtilTest {
 		}
 
 		/**
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_false_0() {
@@ -47,7 +47,7 @@ public class ArrayParsingUtilTest {
 		}
 
 		/**
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_true_1() {
@@ -58,7 +58,7 @@ public class ArrayParsingUtilTest {
 		}
 
 		/**
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_twoRows() {
