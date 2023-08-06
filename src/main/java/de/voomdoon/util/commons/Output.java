@@ -5,6 +5,8 @@ import java.io.PrintStream;
 
 import de.voomdoon.logging.Logger;
 
+//FEATURE support Runnable with Exception
+
 /**
  * Wrapper for the output at the console.
  *
