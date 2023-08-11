@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.Color;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import de.voomdoon.testing.tests.TestBase;
@@ -25,7 +26,8 @@ public class ReflectionUtilTest {
 	 *
 	 * @since 0.1.0
 	 */
-	static class GetStaticFieldValueTest extends TestBase {
+	@Nested
+	class GetStaticFieldValueTest extends TestBase {
 
 		/**
 		 * @throws Exception

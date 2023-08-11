@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.awt.Color;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import de.voomdoon.testing.tests.TestBase;
@@ -24,7 +25,8 @@ public class AwtParsingUtilTest {
 	 *
 	 * @since 0.1.0
 	 */
-	static class ParseColorTest extends TestBase {
+	@Nested
+	class ParseColorTest extends TestBase {
 
 		/**
 		 * @since 0.1.0

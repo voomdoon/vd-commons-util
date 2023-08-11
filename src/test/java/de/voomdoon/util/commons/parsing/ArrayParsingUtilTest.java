@@ -2,6 +2,7 @@ package de.voomdoon.util.commons.parsing;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import de.voomdoon.testing.tests.TestBase;
@@ -22,18 +23,8 @@ public class ArrayParsingUtilTest {
 	 *
 	 * @since 0.1.0
 	 */
-	static class ParseBooleanArray2Test extends TestBase {
-
-		/**
-		 * @since 0.1.0
-		 */
-		@Test
-		public void test_oneRow() {
-			logTestStart();
-
-			boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("101");
-			assertThat(actual).isEqualTo(new boolean[][] { { true, false, true } });
-		}
+	@Nested
+	class ParseBooleanArray2Test extends TestBase {
 
 		/**
 		 * @since 0.1.0
@@ -44,6 +35,17 @@ public class ArrayParsingUtilTest {
 
 			boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("0");
 			assertThat(actual).isEqualTo(new boolean[][] { { false } });
+		}
+
+		/**
+		 * @since 0.1.0
+		 */
+		@Test
+		void test_oneRow() {
+			logTestStart();
+
+			boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("101");
+			assertThat(actual).isEqualTo(new boolean[][] { { true, false, true } });
 		}
 
 		/**

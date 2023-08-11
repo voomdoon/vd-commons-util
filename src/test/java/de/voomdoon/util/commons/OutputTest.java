@@ -25,7 +25,8 @@ class OutputTest extends TestBase {
 	 *
 	 * @since 0.1.0
 	 */
-	static class RunTest extends TestBase {
+	@Nested
+	class RunTest extends TestBase {
 
 		/**
 		 * @param runnable
@@ -128,7 +129,8 @@ class OutputTest extends TestBase {
 	 *
 	 * @since 0.1.0
 	 */
-	static class RunWithExceptionTest extends RunTest {
+	@Nested
+	class RunWithExceptionTest extends RunTest {
 
 		/**
 		 * @since 0.1.0
