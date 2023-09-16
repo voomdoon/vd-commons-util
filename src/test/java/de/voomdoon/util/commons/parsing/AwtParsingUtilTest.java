@@ -1,8 +1,10 @@
 package de.voomdoon.util.commons.parsing;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.awt.Color;
+import java.text.ParseException;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -29,14 +31,25 @@ public class AwtParsingUtilTest {
 	class ParseColorTest extends TestBase {
 
 		/**
+		 * @throws ParseException
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_Color() {
+		void test_Color() throws ParseException {
 			logTestStart();
 
 			Color actual = AwtParsingUtil.parseColor("RED");
 			assertThat(actual).isEqualTo(Color.RED);
+		}
+
+		/**
+		 * @since DOCME add inception version number
+		 */
+		@Test
+		void test_ParseException_unknownColor() throws Exception {
+			logTestStart();
+
+			assertThrows(ParseException.class, () -> AwtParsingUtil.parseColor("UNKNOWN_COLOR"));
 		}
 	}
 }

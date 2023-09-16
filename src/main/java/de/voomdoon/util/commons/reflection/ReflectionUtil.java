@@ -23,9 +23,11 @@ public class ReflectionUtil {
 	 * @param name
 	 * @param resultType
 	 * @return
+	 * @throws NoSuchFieldException
 	 * @since 0.1.0
 	 */
-	public static <T> T getStaticFieldValue(Class<?> clazz, String name, Class<T> resultType) {
+	public static <T> T getStaticFieldValue(Class<?> clazz, String name, Class<T> resultType)
+			throws NoSuchFieldException {
 		for (Field field : clazz.getFields()) {
 			if (Modifier.isPublic(field.getModifiers()) && Modifier.isStatic(field.getModifiers())
 					&& field.getName().equals(name)) {
@@ -40,6 +42,6 @@ public class ReflectionUtil {
 			}
 		}
 
-		return null;
+		throw new NoSuchFieldException(name);
 	}
 }
