@@ -2,10 +2,14 @@ package de.voomdoon.util.commons;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
+import de.voomdoon.logging.Logger;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
@@ -17,6 +21,74 @@ import de.voomdoon.testing.tests.TestBase;
  */
 @Nested
 class OutputTest extends TestBase {
+
+	/**
+	 * Test class for {@link SystemOutput#log(Logger)}.
+	 *
+	 * @author André Schulz
+	 *
+	 * @since DOCME add inception version number
+	 */
+	@Nested
+	class LogTest extends TestBase {
+
+		/**
+		 * @since DOCME add inception version number
+		 */
+		@Test
+		void test_err() throws Exception {
+			logTestStart();
+
+			Logger logger = Mockito.mock(Logger.class);
+
+			SystemOutput output = SystemOutput.run(() -> System.err.println("test"));
+
+			output.log(logger);
+
+			verify(logger).debug("err:\ntest" + System.lineSeparator());
+			verifyNoMoreInteractions(logger);
+		}
+
+		/**
+		 * @since DOCME add inception version number
+		 */
+		@Test
+		void test_errAndOut() throws Exception {
+			logTestStart();
+
+			Logger logger = Mockito.mock(Logger.class);
+
+			SystemOutput output = SystemOutput.run(() -> {
+				System.err.println("err1");
+				System.out.println("out1");
+				System.err.println("err2");
+				System.out.println("out2");
+			});
+
+			output.log(logger);
+
+			verify(logger).debug("err:\nerr1" + System.lineSeparator() + "err2" + System.lineSeparator());
+			verify(logger).debug("out:\nout1" + System.lineSeparator() + "out2" + System.lineSeparator());
+			verifyNoMoreInteractions(logger);
+		}
+
+		/**
+		 * @since DOCME add inception version number
+		 */
+		@Test
+		void test_out() throws Exception {
+			logTestStart();
+
+			Logger logger = Mockito.mock(Logger.class);
+
+			SystemOutput output = SystemOutput.run(() -> System.out.println("test"));
+
+			output.log(logger);
+
+			verify(logger).debug("out:\ntest" + System.lineSeparator());
+			verifyNoMoreInteractions(logger);
+		}
+	}
 
 	/**
 	 * Test class for {@link SystemOutput#run(Runnable)}.
@@ -118,7 +190,8 @@ class OutputTest extends TestBase {
 
 			SystemOutput actual = run(runnable);
 
-			assertThat(actual).extracting(SystemOutput::getOut).asString().containsSubsequence("test1", "\n", "test2", "\n");
+			assertThat(actual).extracting(SystemOutput::getOut).asString().containsSubsequence("test1", "\n", "test2",
+					"\n");
 		}
 	}
 
@@ -161,7 +234,8 @@ class OutputTest extends TestBase {
 
 			SystemOutput actual = run(runnable);
 
-			assertThat(actual).extracting(SystemOutput::getException).extracting(Exception::getMessage).isEqualTo("test");
+			assertThat(actual).extracting(SystemOutput::getException).extracting(Exception::getMessage)
+					.isEqualTo("test");
 		}
 	}
 }
