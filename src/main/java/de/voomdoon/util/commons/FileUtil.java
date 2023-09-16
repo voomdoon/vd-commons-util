@@ -39,7 +39,8 @@ public class FileUtil {
 					.filter(Files::isRegularFile)//
 					.map(Path::toFile)//
 					.filter(File::isFile)//
-					.filter(f -> acceptDepth(f, maxDepth, fileOrDirectory))//
+					.filter(file -> acceptDepth(file, maxDepth, fileOrDirectory))//
+					.filter(file -> fileFilter == null || fileFilter.accept(file))//
 					.toList();
 		} catch (IOException e) {
 			// TODO implement error handling

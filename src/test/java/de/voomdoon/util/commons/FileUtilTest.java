@@ -151,7 +151,7 @@ class FileUtilTest {
 			List<File> actuals = FileUtil.listFiles(getTempDirectory(), null,
 					pathname -> pathname.toString().contains("accept"));
 
-			assertThat(actuals).containsExactly(file.toFile());
+			assertThat(actuals).isEmpty();
 		}
 
 		/**
