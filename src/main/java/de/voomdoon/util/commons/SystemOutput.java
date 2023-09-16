@@ -116,18 +116,9 @@ public class SystemOutput {
 	 *
 	 * @since 0.1.0
 	 */
-	public SystemOutput(String out, String err) {
-		if (out != null) {
-			this.out = out;
-		} else {
-			this.out = "";
-		}
-
-		if (err != null) {
-			this.err = err;
-		} else {
-			this.err = "";
-		}
+	private SystemOutput(String out, String err) {
+		this.out = out;
+		this.err = err;
 	}
 
 	/**
