@@ -15,16 +15,16 @@ import de.voomdoon.logging.Logger;
  *
  * @since 0.1.0
  */
-public class Output {
+public class SystemOutput {
 
 	/**
 	 * Runs a {@link Runnable} and tracks the output.
 	 *
 	 * @param runnable
-	 * @return The tracked {@link Output}.
+	 * @return The tracked {@link SystemOutput}.
 	 * @since 0.1.0
 	 */
-	public static Output run(Runnable runnable) {
+	public static SystemOutput run(Runnable runnable) {
 		return run(runnable, false);
 	}
 
@@ -32,11 +32,11 @@ public class Output {
 	 * Runs a {@link Runnable} and tracks the output. Catches {@link Exception}.
 	 *
 	 * @param runnable
-	 * @return {@link Output}
+	 * @return {@link SystemOutput}
 	 * @since 0.1.0
-	 * @see Output#getException()
+	 * @see SystemOutput#getException()
 	 */
-	public static Output runWithCatch(Runnable runnable) {
+	public static SystemOutput runWithCatch(Runnable runnable) {
 		return run(runnable, true);
 	}
 
@@ -45,10 +45,10 @@ public class Output {
 	 *
 	 * @param runnable
 	 * @param catchException
-	 * @return {@link Output}
+	 * @return {@link SystemOutput}
 	 * @since 0.1.0
 	 */
-	private static Output run(Runnable runnable, boolean catchException) {
+	private static SystemOutput run(Runnable runnable, boolean catchException) {
 		PrintStream out = System.out;
 		PrintStream err = System.err;
 
@@ -75,22 +75,22 @@ public class Output {
 	 * @param catchException
 	 * @param out
 	 * @param err
-	 * @return {@link Output}
+	 * @return {@link SystemOutput}
 	 * @since 0.1.0
 	 */
-	private static Output run(Runnable runnable, boolean catchException, ByteArrayOutputStream out,
+	private static SystemOutput run(Runnable runnable, boolean catchException, ByteArrayOutputStream out,
 			ByteArrayOutputStream err) {
 		try {
 			runnable.run();
 		} catch (RuntimeException e) {
 			if (catchException) {
-				return new Output(new String(out.toByteArray()), new String(err.toByteArray()), e);
+				return new SystemOutput(new String(out.toByteArray()), new String(err.toByteArray()), e);
 			}
 
 			throw e;
 		}
 
-		return new Output(new String(out.toByteArray()), new String(err.toByteArray()));
+		return new SystemOutput(new String(out.toByteArray()), new String(err.toByteArray()));
 	}
 
 	/**
@@ -116,7 +116,7 @@ public class Output {
 	 *
 	 * @since 0.1.0
 	 */
-	public Output(String out, String err) {
+	public SystemOutput(String out, String err) {
 		if (out != null) {
 			this.out = out;
 		} else {
@@ -136,7 +136,7 @@ public class Output {
 	 * @param exception
 	 * @since 0.1.0
 	 */
-	private Output(String out, String err, Exception exception) {
+	private SystemOutput(String out, String err, Exception exception) {
 		this(out, err);
 
 		this.exception = exception;

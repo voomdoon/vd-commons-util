@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
- * Test class for {@link Output}.
+ * Test class for {@link SystemOutput}.
  *
  * @author André Schulz
  *
@@ -19,7 +19,7 @@ import de.voomdoon.testing.tests.TestBase;
 class OutputTest extends TestBase {
 
 	/**
-	 * Test class for {@link Output#run(Runnable)}.
+	 * Test class for {@link SystemOutput#run(Runnable)}.
 	 *
 	 * @author André Schulz
 	 *
@@ -33,8 +33,8 @@ class OutputTest extends TestBase {
 		 * @return
 		 * @since 0.1.0
 		 */
-		protected Output run(Runnable runnable) {
-			Output output = Output.run(runnable);
+		protected SystemOutput run(Runnable runnable) {
+			SystemOutput output = SystemOutput.run(runnable);
 			output.log(logger);
 
 			return output;
@@ -55,9 +55,9 @@ class OutputTest extends TestBase {
 				}
 			};
 
-			Output actual = run(runnable);
+			SystemOutput actual = run(runnable);
 
-			assertThat(actual).extracting(Output::getErr).asString().containsSubsequence("test", "\n");
+			assertThat(actual).extracting(SystemOutput::getErr).asString().containsSubsequence("test", "\n");
 		}
 
 		/**
@@ -95,9 +95,9 @@ class OutputTest extends TestBase {
 				}
 			};
 
-			Output actual = run(runnable);
+			SystemOutput actual = run(runnable);
 
-			assertThat(actual).extracting(Output::getOut).asString().containsSubsequence("test", "\n");
+			assertThat(actual).extracting(SystemOutput::getOut).asString().containsSubsequence("test", "\n");
 		}
 
 		/**
@@ -116,14 +116,14 @@ class OutputTest extends TestBase {
 				}
 			};
 
-			Output actual = run(runnable);
+			SystemOutput actual = run(runnable);
 
-			assertThat(actual).extracting(Output::getOut).asString().containsSubsequence("test1", "\n", "test2", "\n");
+			assertThat(actual).extracting(SystemOutput::getOut).asString().containsSubsequence("test1", "\n", "test2", "\n");
 		}
 	}
 
 	/**
-	 * Test class for {@link Output#runWithCatch(Runnable)}.
+	 * Test class for {@link SystemOutput#runWithCatch(Runnable)}.
 	 *
 	 * @author André Schulz
 	 *
@@ -136,8 +136,8 @@ class OutputTest extends TestBase {
 		 * @since 0.1.0
 		 */
 		@Override
-		protected Output run(Runnable runnable) {
-			Output output = Output.runWithCatch(runnable);
+		protected SystemOutput run(Runnable runnable) {
+			SystemOutput output = SystemOutput.runWithCatch(runnable);
 			output.log(logger);
 
 			return output;
@@ -159,9 +159,9 @@ class OutputTest extends TestBase {
 				}
 			};
 
-			Output actual = run(runnable);
+			SystemOutput actual = run(runnable);
 
-			assertThat(actual).extracting(Output::getException).extracting(Exception::getMessage).isEqualTo("test");
+			assertThat(actual).extracting(SystemOutput::getException).extracting(Exception::getMessage).isEqualTo("test");
 		}
 	}
 }
