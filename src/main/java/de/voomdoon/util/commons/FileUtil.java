@@ -36,7 +36,6 @@ public class FileUtil {
 
 		try (Stream<Path> filesStream = Files.walk(fileOrDirectory)) {
 			return filesStream//
-					.filter(Files::isRegularFile)//
 					.map(Path::toFile)//
 					.filter(File::isFile)//
 					.filter(file -> acceptDepth(file, maxDepth, fileOrDirectory))//
