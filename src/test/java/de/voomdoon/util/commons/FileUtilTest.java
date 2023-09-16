@@ -29,7 +29,7 @@ class FileUtilTest {
 	 * @since DOCME add inception version number
 	 */
 	@Nested
-	static class ListFilesTest extends TestBase {
+	class ListFilesTest extends TestBase {
 
 		/**
 		 * DOCME add JavaDoc for method test_directoryAtRoot
