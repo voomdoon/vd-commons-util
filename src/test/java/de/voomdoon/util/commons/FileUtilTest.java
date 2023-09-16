@@ -87,6 +87,26 @@ class FileUtilTest {
 		 * @since DOCME add inception version number
 		 */
 		@Test
+		void test_fileAtDirectory_maxDepthOne_hasFile() throws Exception {
+			logTestStart();
+
+			File directory = new File(getTempDirectory() + "/directory");
+			directory.mkdir();
+
+			Path file = Path.of(directory.toString(), "file");
+			Files.writeString(file, "content");
+
+			List<File> actuals = FileUtil.listFiles(getTempDirectory(), 1, null);
+
+			assertThat(actuals).containsExactly(file.toFile());
+		}
+
+		/**
+		 * DOCME add JavaDoc for method test_fileAtDirectory
+		 * 
+		 * @since DOCME add inception version number
+		 */
+		@Test
 		void test_fileAtDirectory_maxDepthZero_isEmpty() throws Exception {
 			logTestStart();
 
