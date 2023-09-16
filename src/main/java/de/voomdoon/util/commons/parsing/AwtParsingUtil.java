@@ -2,7 +2,7 @@ package de.voomdoon.util.commons.parsing;
 
 import java.awt.Color;
 
-import de.voomdoon.util.commons.reflection.reflection.ReflectionUtil;
+import de.voomdoon.util.commons.reflection.ReflectionUtil;
 import lombok.experimental.UtilityClass;
 
 /**

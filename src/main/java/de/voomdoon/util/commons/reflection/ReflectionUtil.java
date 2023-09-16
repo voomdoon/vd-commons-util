@@ -1,4 +1,4 @@
-package de.voomdoon.util.commons.reflection.reflection;
+package de.voomdoon.util.commons.reflection;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;

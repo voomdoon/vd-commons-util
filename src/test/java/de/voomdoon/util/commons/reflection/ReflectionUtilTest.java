@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import de.voomdoon.testing.tests.TestBase;
-import de.voomdoon.util.commons.reflection.reflection.ReflectionUtil;
+import de.voomdoon.util.commons.reflection.ReflectionUtil;
 
 /**
  * DOCME add JavaDoc for
