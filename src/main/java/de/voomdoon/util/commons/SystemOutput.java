@@ -172,8 +172,8 @@ public class SystemOutput {
 			throw new IllegalArgumentException("Argument 'logger' must not be null in method 'log'!");
 		}
 
-		log(logger, err, "err: ");
-		log(logger, out, "out: ");
+		log(logger, err, "err");
+		log(logger, out, "out");
 	}
 
 	/**
@@ -186,7 +186,7 @@ public class SystemOutput {
 	 */
 	private void log(Logger logger, String message, String name) {
 		if (!message.isEmpty()) {
-			logger.debug(name + "\n" + message);
+			logger.debug(name + ":\n" + message);
 		}
 	}
 }
