@@ -43,7 +43,7 @@ public class AwtParsingUtilTest {
 		}
 
 		/**
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_ParseException_unknownColor() throws Exception {
