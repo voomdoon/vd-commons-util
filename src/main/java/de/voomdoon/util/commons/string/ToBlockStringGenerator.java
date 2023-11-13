@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * DOCME add JavaDoc for
+ * Generator for {@link String} from boolean matrix using ASCII blocks: █, ▄ and ▀. The result may contain an empty
+ * lower section of a line if input matrix has odd number of rows.
  *
  * @author André Schulz
  *

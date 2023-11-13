@@ -3,7 +3,7 @@ package de.voomdoon.util.commons;
 import java.util.Random;
 
 /**
- * DOCME add JavaDoc for
+ * Generator for boolean arrays.
  *
  * @author André Schulz
  *

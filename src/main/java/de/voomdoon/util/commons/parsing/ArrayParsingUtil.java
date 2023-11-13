@@ -4,7 +4,7 @@ import de.voomdoon.util.commons.string.ToBlockStringGenerator;
 import lombok.experimental.UtilityClass;
 
 /**
- * DOCME add JavaDoc for
+ * Utility to parse arrays with one or more dimensions.
  *
  * @author André Schulz
  *

@@ -7,7 +7,7 @@ import de.voomdoon.util.commons.reflection.ReflectionUtil;
 import lombok.experimental.UtilityClass;
 
 /**
- * DOCME add JavaDoc for
+ * Utility to parse {@code java.awt} classes.
  *
  * @author André Schulz
  *

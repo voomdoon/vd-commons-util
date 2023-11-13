@@ -8,7 +8,7 @@ import org.apache.commons.lang3.ArrayUtils;
 import lombok.experimental.UtilityClass;
 
 /**
- * DOCME add JavaDoc for
+ * Utility for boolean arrays.
  *
  * @author André Schulz
  *
