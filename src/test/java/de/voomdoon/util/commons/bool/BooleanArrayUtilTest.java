@@ -11,7 +11,6 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import de.voomdoon.testing.tests.TestBase;
-import de.voomdoon.util.commons.bool.BooleanArrayUtil;
 
 /**
  * DOCME add JavaDoc for

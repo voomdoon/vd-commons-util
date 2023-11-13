@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import de.voomdoon.testing.tests.TestBase;
-import de.voomdoon.util.commons.bool.BooleanArrayCalculator;
 
 /**
  * DOCME add JavaDoc for
