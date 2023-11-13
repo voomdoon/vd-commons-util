@@ -16,7 +16,7 @@ import lombok.experimental.UtilityClass;
  *
  * @author André Schulz
  *
- * @since DOCME add inception version number
+ * @since 0.1.0
  */
 @UtilityClass
 public class FileUtil {
@@ -27,7 +27,7 @@ public class FileUtil {
 	 * @param fileOrDirectory
 	 * @param maxDepth
 	 * @param fileFilter
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	public static List<File> listFiles(Path fileOrDirectory, Integer maxDepth, FileFilter fileFilter) {
 		if (fileOrDirectory.toFile().isFile()) {
@@ -54,7 +54,7 @@ public class FileUtil {
 	 * @param maxDepth
 	 * @param root
 	 * @return
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	private static boolean acceptDepth(File file, Integer maxDepth, Path root) {
 		return maxDepth == null //
@@ -67,7 +67,7 @@ public class FileUtil {
 	 * @param file
 	 * @param root
 	 * @return
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	private static Integer getDepth(File file, Path root) {
 		return file.toString().split(Pattern.quote(File.separator)).length
