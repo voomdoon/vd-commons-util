@@ -1,7 +1,5 @@
 package de.voomdoon.util.commons.bool;
 
-import java.util.List;
-
 import lombok.experimental.UtilityClass;
 
 /**
