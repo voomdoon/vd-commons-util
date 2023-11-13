@@ -1,4 +1,4 @@
-package de.voomdoon.util.commons;
+package de.voomdoon.util.commons.bool;
 
 import java.util.ArrayList;
 import java.util.List;

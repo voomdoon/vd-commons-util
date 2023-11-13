@@ -1,4 +1,4 @@
-package de.voomdoon.util.commons;
+package de.voomdoon.util.commons.bool;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -11,6 +11,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import de.voomdoon.testing.tests.TestBase;
+import de.voomdoon.util.commons.bool.BooleanArrayUtil;
 
 /**
  * DOCME add JavaDoc for
