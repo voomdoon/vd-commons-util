@@ -27,13 +27,13 @@ class OutputTest extends TestBase {
 	 *
 	 * @author André Schulz
 	 *
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	@Nested
 	class LogTest extends TestBase {
 
 		/**
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_err() throws Exception {
@@ -50,7 +50,7 @@ class OutputTest extends TestBase {
 		}
 
 		/**
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_errAndOut() throws Exception {
@@ -73,7 +73,7 @@ class OutputTest extends TestBase {
 		}
 
 		/**
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_out() throws Exception {

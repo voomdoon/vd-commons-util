@@ -17,7 +17,7 @@ import de.voomdoon.testing.tests.TestBase;
  *
  * @author André Schulz
  *
- * @since DOCME add inception version number
+ * @since 0.1.0
  */
 class FileUtilTest {
 
@@ -26,7 +26,7 @@ class FileUtilTest {
 	 *
 	 * @author André Schulz
 	 *
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	@Nested
 	class ListFilesTest extends TestBase {
@@ -34,7 +34,7 @@ class FileUtilTest {
 		/**
 		 * DOCME add JavaDoc for method test_directoryAtRoot
 		 * 
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_directoryAtRoot() throws Exception {
@@ -50,7 +50,7 @@ class FileUtilTest {
 		/**
 		 * DOCME add JavaDoc for method test_empty
 		 * 
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_empty_isEmpty() throws Exception {
@@ -64,7 +64,7 @@ class FileUtilTest {
 		/**
 		 * DOCME add JavaDoc for method test_fileAtDirectory
 		 * 
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_fileAtDirectory() throws Exception {
@@ -84,7 +84,7 @@ class FileUtilTest {
 		/**
 		 * DOCME add JavaDoc for method test_fileAtDirectory
 		 * 
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_fileAtDirectory_maxDepthOne_hasFile() throws Exception {
@@ -104,7 +104,7 @@ class FileUtilTest {
 		/**
 		 * DOCME add JavaDoc for method test_fileAtDirectory
 		 * 
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_fileAtDirectory_maxDepthZero_isEmpty() throws Exception {
@@ -124,7 +124,7 @@ class FileUtilTest {
 		/**
 		 * DOCME add JavaDoc for method test_file
 		 * 
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_fileAtRoot() throws Exception {
@@ -141,7 +141,7 @@ class FileUtilTest {
 		/**
 		 * DOCME add JavaDoc for method test_fileFilter_accept
 		 * 
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_fileFilter_accept() throws Exception {
@@ -159,7 +159,7 @@ class FileUtilTest {
 		/**
 		 * DOCME add JavaDoc for method test_fileFilter_reject
 		 * 
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_fileFilter_reject() throws Exception {
@@ -177,7 +177,7 @@ class FileUtilTest {
 		/**
 		 * DOCME add JavaDoc for method test_fileItself
 		 * 
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Test
 		void test_fileItself() throws Exception {
