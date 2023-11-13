@@ -17,8 +17,6 @@ import de.voomdoon.testing.tests.TestBase;
 public class ArrayParsingUtilTest {
 
 	/**
-	 * Test class for {@link ArrayParsingUtil#parseBooleanArray2(String)}.
-	 *
 	 * @author André Schulz
 	 *
 	 * @since 0.1.0
@@ -27,47 +25,133 @@ public class ArrayParsingUtilTest {
 	class ParseBooleanArray2Test extends TestBase {
 
 		/**
+		 * DOCME add JavaDoc for ArrayParsingUtilTest.ParseBooleanArray2Test
+		 *
+		 * @author André Schulz
+		 *
 		 * @since 0.1.0
 		 */
-		@Test
-		void test_false_0() {
-			logTestStart();
+		@Nested
+		class BlockTest extends TestBase {
 
-			boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("0");
-			assertThat(actual).isEqualTo(new boolean[][] { { false } });
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_false() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2(" ");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { false }, { false } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_rows_falseTrue() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("▄");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { false }, { true } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_rows_trueFalse() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("▀");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true }, { false } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_rows_trueTrue() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("█");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true }, { true } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_rows_trueTrueTrue() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("█\n▀");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true }, { true }, { true }, { false } });
+			}
 		}
 
 		/**
+		 * Test class using {@code 0} and {@code 1}.
+		 * 
+		 * @author André Schulz
+		 *
 		 * @since 0.1.0
 		 */
-		@Test
-		void test_oneRow() {
-			logTestStart();
+		@Nested
+		class OneAndZeroTest extends TestBase {
 
-			boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("101");
-			assertThat(actual).isEqualTo(new boolean[][] { { true, false, true } });
-		}
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_false_0() {
+				logTestStart();
 
-		/**
-		 * @since 0.1.0
-		 */
-		@Test
-		void test_true_1() {
-			logTestStart();
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("0");
 
-			boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("1");
-			assertThat(actual).isEqualTo(new boolean[][] { { true } });
-		}
+				assertThat(actual).isEqualTo(new boolean[][] { { false } });
+			}
 
-		/**
-		 * @since 0.1.0
-		 */
-		@Test
-		void test_twoRows() {
-			logTestStart();
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_oneRow() {
+				logTestStart();
 
-			boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("101\n010");
-			assertThat(actual).isEqualTo(new boolean[][] { { true, false, true }, { false, true, false } });
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("101");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true, false, true } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_true_1() {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("1");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_twoRows() {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("101\n010");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true, false, true }, { false, true, false } });
+			}
 		}
 	}
 }
