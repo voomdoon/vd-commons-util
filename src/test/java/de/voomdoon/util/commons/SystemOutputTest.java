@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
+import java.io.PrintStream;
+
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -109,6 +111,36 @@ class SystemOutputTest extends TestBase {
 			output.log(logger);
 
 			return output;
+		}
+
+		/**
+		 * @since DOCME add inception version number
+		 */
+		@Test
+		void test_backupErr() throws Exception {
+			logTestStart();
+
+			PrintStream expected = System.err;
+
+			run(() -> {
+			});
+
+			assertThat(System.err).isEqualTo(expected);
+		}
+
+		/**
+		 * @since DOCME add inception version number
+		 */
+		@Test
+		void test_backupOut() throws Exception {
+			logTestStart();
+
+			PrintStream expected = System.out;
+
+			run(() -> {
+			});
+
+			assertThat(System.out).isEqualTo(expected);
 		}
 
 		/**
