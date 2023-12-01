@@ -54,7 +54,6 @@ public class ArrayParsingUtil {
 				result[iLine * 2][iCol] = true;
 				result[iLine * 2 + 1][iCol] = false;
 			} else if (c == '▄') {
-				result[iLine * 2][iCol] = false;
 				result[iLine * 2 + 1][iCol] = true;
 			} else {
 				throw new IllegalArgumentException("Unrecognized character: '" + c + "' (" + ((int) c) + ")!");
