@@ -38,6 +38,19 @@ public class ArrayParsingUtilTest {
 			 * @since 0.1.0
 			 */
 			@Test
+			void test_columns_trueFalse() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("full line\n" //
+						+ "██" + "  ");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true, false } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
 			void test_false() throws Exception {
 				logTestStart();
 
