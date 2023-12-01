@@ -22,7 +22,9 @@ public class ArrayParsingUtil {
 	 * @see ToBlockStringGenerator
 	 */
 	public static boolean[][] parseBooleanArray2(String string) {
-		if (string.contains("0") || string.contains("1")) {
+		if (string.startsWith("full line\n")) {
+			return parseBooleanArray2WithFullLineBlocks(string);
+		} else if (string.contains("0") || string.contains("1")) {
 			return parseBooleanArray2WithOneAndZero(string);
 		} else if (string.contains(" ") || string.contains("█") || string.contains("▀") || string.contains("▄")) {
 			return parseBooleanArray2WithBlocks(string);
@@ -81,6 +83,24 @@ public class ArrayParsingUtil {
 	}
 
 	/**
+	 * DOCME add JavaDoc for method parseBooleanArray2WithFullLineBlocks
+	 * 
+	 * @param string
+	 * @return
+	 * @since DOCME add inception version number
+	 */
+	private static boolean[][] parseBooleanArray2WithFullLineBlocks(String string) {
+		String[] lines = string.split("\n");
+		boolean[][] result = new boolean[lines.length - 1][];
+
+		for (int i = 0; i < result.length; i++) {
+			result[i] = parseBooleanArrayWithFullLineBlocks(lines[i + 1]);
+		}
+
+		return result;
+	}
+
+	/**
 	 * DOCME add JavaDoc for method parseBooleanArray2WithOneAndZero
 	 * 
 	 * @param string
@@ -107,6 +127,23 @@ public class ArrayParsingUtil {
 					throw new IllegalArgumentException("Unrecognized character: '" + c + "' (" + ((int) c) + ")!");
 				}
 			}
+		}
+
+		return result;
+	}
+
+	/**
+	 * DOCME add JavaDoc for method parseBooleanArrayWithFullLineBlocks
+	 * 
+	 * @param string
+	 * @return
+	 * @since DOCME add inception version number
+	 */
+	private static boolean[] parseBooleanArrayWithFullLineBlocks(String string) {
+		boolean[] result = new boolean[string.length() / 2];
+
+		for (int i = 0; i < result.length; i++) {
+			result[i] = string.charAt(i * 2) == '█';
 		}
 
 		return result;

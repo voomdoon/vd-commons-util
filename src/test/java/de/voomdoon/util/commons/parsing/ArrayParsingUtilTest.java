@@ -29,10 +29,74 @@ public class ArrayParsingUtilTest {
 		 *
 		 * @author André Schulz
 		 *
+		 * @since DOCME add inception version number
+		 */
+		@Nested
+		class Block_fullLine_Test extends TestBase {
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_false() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("full line\n" //
+						+ "  ");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { false } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_true() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("full line\n" //
+						+ "██");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_true_columns2() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("full line\n" //
+						+ "██" + "██");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true, true } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_true_rows2() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("full line\n" //
+						+ "██" + "\n"//
+						+ "██");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true }, { true } });
+			}
+		}
+
+		/**
+		 * DOCME add JavaDoc for ArrayParsingUtilTest.ParseBooleanArray2Test
+		 *
+		 * @author André Schulz
+		 *
 		 * @since 0.1.0
 		 */
 		@Nested
-		class BlockTest extends TestBase {
+		class Block_halfLine_Test extends TestBase {
 
 			/**
 			 * @since 0.1.0
