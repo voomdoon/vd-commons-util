@@ -19,8 +19,7 @@ import de.voomdoon.testing.tests.TestBase;
  *
  * @since 0.1.0
  */
-@Nested
-class OutputTest extends TestBase {
+class SystemOutputTest extends TestBase {
 
 	/**
 	 * Test class for {@link SystemOutput#log(Logger)}.
