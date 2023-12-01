@@ -253,6 +253,18 @@ public class ArrayParsingUtilTest {
 
 				assertThat(actual).isEqualTo(new boolean[][] { { true, false, true }, { false, true, false } });
 			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_twoRowsWithCarriageReturn() {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("101\r\n010");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true, false, true }, { false, true, false } });
+			}
 		}
 	}
 }

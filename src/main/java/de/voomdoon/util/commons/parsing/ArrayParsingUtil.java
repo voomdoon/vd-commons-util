@@ -1,5 +1,10 @@
 package de.voomdoon.util.commons.parsing;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.lang3.ArrayUtils;
+
 import de.voomdoon.util.commons.string.ToBlockStringGenerator;
 import lombok.experimental.UtilityClass;
 
@@ -111,21 +116,23 @@ public class ArrayParsingUtil {
 		boolean[][] result = new boolean[lines.length][];
 
 		for (int iRow = 0; iRow < lines.length; iRow++) {
-			result[iRow] = new boolean[lines[iRow].length()];
+			List<Boolean> row = new ArrayList<>();
 
 			for (int iCol = 0; iCol < lines[iRow].length(); iCol++) {
 				char c = lines[iRow].charAt(iCol);
 
 				if (c == '1') {
-					result[iRow][iCol] = true;
+					row.add(true);
 				} else if (c == '0') {
-					result[iRow][iCol] = false;
+					row.add(false);
 				} else if (c == '\r') {
 					// ignore
 				} else {
 					throw new IllegalArgumentException("Unrecognized character: '" + c + "' (" + ((int) c) + ")!");
 				}
 			}
+
+			result[iRow] = ArrayUtils.toPrimitive(row.toArray(new Boolean[0]));
 		}
 
 		return result;
