@@ -6,7 +6,6 @@ import java.io.PrintStream;
 import de.voomdoon.logging.Logger;
 
 //FEATURE support Runnable with Exception
-//TODO rename (too generic)
 
 /**
  * Wrapper for the output at the console.
