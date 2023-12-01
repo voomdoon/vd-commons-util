@@ -27,7 +27,7 @@ public class ArrayParsingUtil {
 		} else if (string.contains("0") || string.contains("1")) {
 			return parseBooleanArray2WithOneAndZero(string);
 		} else if (string.contains(" ") || string.contains("█") || string.contains("▀") || string.contains("▄")) {
-			return parseBooleanArray2WithBlocks(string);
+			return parseBooleanArray2WithHalfLineBlocks(string);
 		} else {
 			throw new UnsupportedOperationException("Method 'parseBooleanArray2' not implemented for\n" + string);
 		}
@@ -63,26 +63,6 @@ public class ArrayParsingUtil {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method parseBooleanArray2WithBlocks
-	 * 
-	 * @param string
-	 * @return
-	 * @since 0.1.0
-	 */
-	private static boolean[][] parseBooleanArray2WithBlocks(String string) {
-		String[] lines = string.split("\n");
-		boolean[][] result = new boolean[lines.length * 2][];
-
-		for (int iLine = 0; iLine < lines.length; iLine++) {
-			result[iLine * 2] = new boolean[lines[iLine].length()];
-			result[iLine * 2 + 1] = new boolean[lines[iLine].length()];
-			parseBlockLine(lines[iLine], result, iLine);
-		}
-
-		return result;
-	}
-
-	/**
 	 * DOCME add JavaDoc for method parseBooleanArray2WithFullLineBlocks
 	 * 
 	 * @param string
@@ -95,6 +75,26 @@ public class ArrayParsingUtil {
 
 		for (int i = 0; i < result.length; i++) {
 			result[i] = parseBooleanArrayWithFullLineBlocks(lines[i + 1]);
+		}
+
+		return result;
+	}
+
+	/**
+	 * DOCME add JavaDoc for method parseBooleanArray2WithBlocks
+	 * 
+	 * @param string
+	 * @return
+	 * @since 0.1.0
+	 */
+	private static boolean[][] parseBooleanArray2WithHalfLineBlocks(String string) {
+		String[] lines = string.split("\n");
+		boolean[][] result = new boolean[lines.length * 2][];
+
+		for (int iLine = 0; iLine < lines.length; iLine++) {
+			result[iLine * 2] = new boolean[lines[iLine].length()];
+			result[iLine * 2 + 1] = new boolean[lines[iLine].length()];
+			parseBlockLine(lines[iLine], result, iLine);
 		}
 
 		return result;
