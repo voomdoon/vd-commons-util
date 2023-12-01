@@ -126,6 +126,18 @@ public class ArrayParsingUtilTest {
 			 * @since 0.1.0
 			 */
 			@Test
+			void test_rows_falseTrueFalseTrue() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("▄\n▄");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { false }, { true }, { false }, { true } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
 			void test_rows_trueFalse() throws Exception {
 				logTestStart();
 
@@ -156,6 +168,18 @@ public class ArrayParsingUtilTest {
 				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("█\n▀");
 
 				assertThat(actual).isEqualTo(new boolean[][] { { true }, { true }, { true }, { false } });
+			}
+
+			/**
+			 * @since 0.1.0
+			 */
+			@Test
+			void test_rows4_true() throws Exception {
+				logTestStart();
+
+				boolean[][] actual = ArrayParsingUtil.parseBooleanArray2("█\n█");
+
+				assertThat(actual).isEqualTo(new boolean[][] { { true }, { true }, { true }, { true } });
 			}
 		}
 
