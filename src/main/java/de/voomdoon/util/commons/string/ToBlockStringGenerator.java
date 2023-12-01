@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Generator for {@link String} from boolean matrix using ASCII blocks: █, ▄ and ▀. The result may contain an empty
- * lower section of a line if input matrix has odd number of rows.
+ * Generator for {@link String} from boolean matrix.
  *
  * @author André Schulz
  *
@@ -14,6 +13,9 @@ import java.util.List;
 public class ToBlockStringGenerator {
 
 	/**
+	 * Default {@link ToBlockStringGenerator} generating half lines using ASCII blocks: █, ▄ and ▀. The result may
+	 * contain an empty lower section of a line if input matrix has odd number of rows.
+	 * 
 	 * @since 0.1.0
 	 */
 	public static final ToBlockStringGenerator DEFAULT = new ToBlockStringGenerator();
