@@ -29,7 +29,7 @@ public class ArrayParsingUtilTest {
 		 *
 		 * @author André Schulz
 		 *
-		 * @since DOCME add inception version number
+		 * @since 0.1.0
 		 */
 		@Nested
 		class Block_fullLine_Test extends TestBase {

@@ -71,7 +71,7 @@ public class ArrayParsingUtil {
 	 * 
 	 * @param string
 	 * @return
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	private static boolean[][] parseBooleanArray2WithFullLineBlocks(String string) {
 		String[] lines = string.split("\n");
@@ -143,7 +143,7 @@ public class ArrayParsingUtil {
 	 * 
 	 * @param string
 	 * @return
-	 * @since DOCME add inception version number
+	 * @since 0.1.0
 	 */
 	private static boolean[] parseBooleanArrayWithFullLineBlocks(String string) {
 		boolean[] result = new boolean[string.length() / 2];
