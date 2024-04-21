@@ -2,6 +2,7 @@ package de.voomdoon.util.commons;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.lang.reflect.InvocationTargetException;
 
 import de.voomdoon.logging.Logger;
 
@@ -17,25 +18,45 @@ import de.voomdoon.logging.Logger;
 public class SystemOutput {
 
 	/**
-	 * Runs a {@link Runnable} and tracks the output.
+	 * DOCME add JavaDoc for SystemOutput
+	 *
+	 * @author André Schulz
+	 *
+	 * @since 0.1.0
+	 */
+	public interface MyRunnable {
+
+		/**
+		 * DOCME add JavaDoc for method run
+		 * 
+		 * @throws Exception
+		 * @since 0.1.0
+		 */
+		void run() throws Exception;
+	}
+
+	/**
+	 * Runs a {@link MyRunnable} and tracks the output.
 	 *
 	 * @param runnable
 	 * @return The tracked {@link SystemOutput}.
+	 * @throws InvocationTargetException
 	 * @since 0.1.0
 	 */
-	public static SystemOutput run(Runnable runnable) {
+	public static SystemOutput run(MyRunnable runnable) throws InvocationTargetException {
 		return run(runnable, false);
 	}
 
 	/**
-	 * Runs a {@link Runnable} and tracks the output. Catches {@link Exception}.
+	 * Runs a {@link MyRunnable} and tracks the output. Catches {@link Exception}.
 	 *
 	 * @param runnable
 	 * @return {@link SystemOutput}
+	 * @throws InvocationTargetException
 	 * @since 0.1.0
 	 * @see SystemOutput#getException()
 	 */
-	public static SystemOutput runWithCatch(Runnable runnable) {
+	public static SystemOutput runWithCatch(MyRunnable runnable) throws InvocationTargetException {
 		return run(runnable, true);
 	}
 
@@ -45,9 +66,10 @@ public class SystemOutput {
 	 * @param runnable
 	 * @param catchException
 	 * @return {@link SystemOutput}
+	 * @throws InvocationTargetException
 	 * @since 0.1.0
 	 */
-	private static SystemOutput run(Runnable runnable, boolean catchException) {
+	private static SystemOutput run(MyRunnable runnable, boolean catchException) throws InvocationTargetException {
 		PrintStream out = System.out;
 		PrintStream err = System.err;
 
@@ -75,18 +97,19 @@ public class SystemOutput {
 	 * @param out
 	 * @param err
 	 * @return {@link SystemOutput}
+	 * @throws InvocationTargetException
 	 * @since 0.1.0
 	 */
-	private static SystemOutput run(Runnable runnable, boolean catchException, ByteArrayOutputStream out,
-			ByteArrayOutputStream err) {
+	private static SystemOutput run(MyRunnable runnable, boolean catchException, ByteArrayOutputStream out,
+			ByteArrayOutputStream err) throws InvocationTargetException {
 		try {
 			runnable.run();
-		} catch (RuntimeException e) {
+		} catch (Exception e) {
 			if (catchException) {
 				return new SystemOutput(new String(out.toByteArray()), new String(err.toByteArray()), e);
 			}
 
-			throw e;
+			throw new InvocationTargetException(e);
 		}
 
 		return new SystemOutput(new String(out.toByteArray()), new String(err.toByteArray()));

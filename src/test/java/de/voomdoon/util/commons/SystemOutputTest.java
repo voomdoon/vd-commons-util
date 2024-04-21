@@ -6,6 +6,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
 import java.io.PrintStream;
+import java.lang.reflect.InvocationTargetException;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import org.mockito.Mockito;
 
 import de.voomdoon.logging.Logger;
 import de.voomdoon.testing.tests.TestBase;
+import de.voomdoon.util.commons.SystemOutput.MyRunnable;
 
 /**
  * Test class for {@link SystemOutput}.
@@ -104,9 +106,10 @@ class SystemOutputTest extends TestBase {
 		/**
 		 * @param runnable
 		 * @return
+		 * @throws InvocationTargetException
 		 * @since 0.1.0
 		 */
-		protected SystemOutput run(Runnable runnable) {
+		protected SystemOutput run(MyRunnable runnable) throws InvocationTargetException {
 			SystemOutput output = SystemOutput.run(runnable);
 			output.log(logger);
 
@@ -144,13 +147,14 @@ class SystemOutputTest extends TestBase {
 		}
 
 		/**
+		 * @throws InvocationTargetException
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_err_println() {
+		void test_err_println() throws InvocationTargetException {
 			logTestStart();
 
-			Runnable runnable = new Runnable() {
+			MyRunnable runnable = new MyRunnable() {
 
 				@Override
 				public void run() {
@@ -164,13 +168,14 @@ class SystemOutputTest extends TestBase {
 		}
 
 		/**
+		 * @throws InvocationTargetException
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_Exception() {
+		void test_Exception() throws InvocationTargetException {
 			logTestStart();
 
-			Runnable runnable = new Runnable() {
+			MyRunnable runnable = new MyRunnable() {
 
 				@Override
 				public void run() {
@@ -178,19 +183,20 @@ class SystemOutputTest extends TestBase {
 				}
 			};
 
-			RuntimeException thrown = assertThrows(RuntimeException.class, () -> run(runnable));
+			InvocationTargetException thrown = assertThrows(InvocationTargetException.class, () -> run(runnable));
 
-			assertThat(thrown).hasMessage("test");
+			assertThat(thrown.getTargetException()).hasMessage("test");
 		}
 
 		/**
+		 * @throws InvocationTargetException
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_out_println() {
+		void test_out_println() throws InvocationTargetException {
 			logTestStart();
 
-			Runnable runnable = new Runnable() {
+			MyRunnable runnable = new MyRunnable() {
 
 				@Override
 				public void run() {
@@ -204,13 +210,14 @@ class SystemOutputTest extends TestBase {
 		}
 
 		/**
+		 * @throws InvocationTargetException
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_out_println2() {
+		void test_out_println2() throws InvocationTargetException {
 			logTestStart();
 
-			Runnable runnable = new Runnable() {
+			MyRunnable runnable = new MyRunnable() {
 
 				@Override
 				public void run() {
@@ -237,10 +244,11 @@ class SystemOutputTest extends TestBase {
 	class RunWithExceptionTest extends RunTest {
 
 		/**
+		 * @throws InvocationTargetException
 		 * @since 0.1.0
 		 */
 		@Override
-		protected SystemOutput run(Runnable runnable) {
+		protected SystemOutput run(MyRunnable runnable) throws InvocationTargetException {
 			SystemOutput output = SystemOutput.runWithCatch(runnable);
 			output.log(logger);
 
@@ -248,14 +256,15 @@ class SystemOutputTest extends TestBase {
 		}
 
 		/**
+		 * @throws InvocationTargetException
 		 * @since 0.1.0
 		 */
 		@Override
 		@Test
-		void test_Exception() {
+		void test_Exception() throws InvocationTargetException {
 			logTestStart();
 
-			Runnable runnable = new Runnable() {
+			MyRunnable runnable = new MyRunnable() {
 
 				@Override
 				public void run() {
