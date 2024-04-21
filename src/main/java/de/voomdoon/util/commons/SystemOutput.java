@@ -3,6 +3,7 @@ package de.voomdoon.util.commons;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Objects;
 
 import de.voomdoon.logging.Logger;
 
@@ -190,9 +191,7 @@ public class SystemOutput {
 	 * @since 0.1.0
 	 */
 	public void log(Logger logger) {
-		if (logger == null) {
-			throw new IllegalArgumentException("Argument 'logger' must not be null in method 'log'!");
-		}
+		Objects.requireNonNull(logger, "logger");
 
 		log(logger, err, "err");
 		log(logger, out, "out");
