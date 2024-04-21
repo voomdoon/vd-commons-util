@@ -6,6 +6,8 @@ import java.text.ParseException;
 import de.voomdoon.util.commons.reflection.ReflectionUtil;
 import lombok.experimental.UtilityClass;
 
+//TODO move to vd-awt-from-string-parsers
+
 /**
  * Utility to parse {@code java.awt} classes.
  *
