@@ -19,10 +19,16 @@ import lombok.experimental.UtilityClass;
 public class ArrayParsingUtil {
 
 	/**
-	 * DOCME add JavaDoc for method parseBooleanArray2
+	 * Parses a two-dimensional boolean array from a string.<br>
+	 * Supports different formats:
+	 * <ul>
+	 * <li>full line blocks: {@code full line\n██  ██}</li>
+	 * <li>one and zero: {@code 10\n01}</li>
+	 * <li>half line blocks: {@code ▀▄█\n▄▀▀}</li>
+	 * </ul>
 	 * 
 	 * @param string
-	 * @return
+	 * @return bollean[][]
 	 * @since 0.1.0
 	 * @see ToBlockStringGenerator
 	 */

@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
- * DOCME add JavaDoc for
+ * Test class for {@link ArrayParsingUtil}.
  *
  * @author André Schulz
  *
@@ -17,6 +17,8 @@ import de.voomdoon.testing.tests.TestBase;
 public class ArrayParsingUtilTest {
 
 	/**
+	 * Test method for {@link ArrayParsingUtil#parseBooleanArray2(String)}.
+	 * 
 	 * @author André Schulz
 	 *
 	 * @since 0.1.0
