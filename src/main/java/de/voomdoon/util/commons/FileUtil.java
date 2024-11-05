@@ -27,9 +27,11 @@ public class FileUtil {
 	 * @param fileOrDirectory
 	 * @param maxDepth
 	 * @param fileFilter
+	 * @throws IOException
 	 * @since 0.1.0
 	 */
-	public static List<File> listFiles(Path fileOrDirectory, Integer maxDepth, FileFilter fileFilter) {
+	public static List<File> listFiles(Path fileOrDirectory, Integer maxDepth, FileFilter fileFilter)
+			throws IOException {
 		if (fileOrDirectory.toFile().isFile()) {
 			return List.of(fileOrDirectory.toFile());
 		}
@@ -41,9 +43,6 @@ public class FileUtil {
 					.filter(file -> acceptDepth(file, maxDepth, fileOrDirectory))//
 					.filter(file -> fileFilter == null || fileFilter.accept(file))//
 					.toList();
-		} catch (IOException e) {
-			// TODO implement error handling
-			throw new RuntimeException("Error at 'listFiles': " + e.getMessage(), e);
 		}
 	}
 
