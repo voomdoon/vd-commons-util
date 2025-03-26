@@ -6,12 +6,12 @@
 	<parent>
 		<groupId>de.voomdoon.util</groupId>
 		<artifactId>vd-util-parent</artifactId>
-		<version>0.1.0-SNAPSHOT</version>
+		<version>0.2.0-SNAPSHOT</version>
 	</parent>
 
 	<groupId>de.voomdoon.util</groupId>
 	<artifactId>vd-commons-util</artifactId>
-	<version>0.1.0-SNAPSHOT</version>
+	<version>0.2.0-SNAPSHOT</version>
 
 	<properties>
 		<junit-jupiter.version>5.12.0</junit-jupiter.version>
@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>de.voomdoon.logging</groupId>
 			<artifactId>vd-logging</artifactId>
-			<version>0.1.0-SNAPSHOT</version>
+			<version>0.2.0-SNAPSHOT</version>
 		</dependency>
 		<!-- - - - - - internal voomdoon compile dependencies - - - - - -->
 		<!-- + + + + + external compile dependencies + + + + + -->
@@ -45,7 +45,7 @@
 		<dependency>
 			<groupId>de.voomdoon.testing</groupId>
 			<artifactId>vd-test-util</artifactId>
-			<version>0.1.0-SNAPSHOT</version>
+			<version>0.2.0-SNAPSHOT</version>
 			<scope>test</scope>
 		</dependency>
 		<!-- - - - - - internal voomdoon test dependencies - - - - - -->
