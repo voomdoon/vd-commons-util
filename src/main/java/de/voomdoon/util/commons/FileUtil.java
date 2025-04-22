@@ -6,10 +6,11 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 import lombok.experimental.UtilityClass;
+
+//TODO refactor: convert listFiles to handler with builder
 
 /**
  * DOCME add JavaDoc for
@@ -36,40 +37,29 @@ public class FileUtil {
 			return List.of(fileOrDirectory.toFile());
 		}
 
-		try (Stream<Path> filesStream = Files.walk(fileOrDirectory)) {
+		try (Stream<Path> filesStream = getStream(fileOrDirectory, maxDepth)) {
 			return filesStream//
 					.map(Path::toFile)//
 					.filter(File::isFile)//
-					.filter(file -> acceptDepth(file, maxDepth, fileOrDirectory))//
 					.filter(file -> fileFilter == null || fileFilter.accept(file))//
 					.toList();
 		}
 	}
 
 	/**
-	 * DOCME add JavaDoc for method acceptDepth
+	 * DOCME add JavaDoc for method getStream
 	 * 
-	 * @param file
+	 * @param fileOrDirectory
 	 * @param maxDepth
-	 * @param root
 	 * @return
-	 * @since 0.1.0
+	 * @throws IOException
+	 * @since 0.2.0
 	 */
-	private static boolean acceptDepth(File file, Integer maxDepth, Path root) {
-		return maxDepth == null //
-				|| getDepth(file, root) <= maxDepth;
-	}
+	private static Stream<Path> getStream(Path fileOrDirectory, Integer maxDepth) throws IOException {
+		if (maxDepth != null) {
+			return Files.walk(fileOrDirectory, maxDepth);
+		}
 
-	/**
-	 * DOCME add JavaDoc for method getDepth
-	 * 
-	 * @param file
-	 * @param root
-	 * @return
-	 * @since 0.1.0
-	 */
-	private static Integer getDepth(File file, Path root) {
-		return file.toString().split(Pattern.quote(File.separator)).length
-				- root.toFile().toString().split(Pattern.quote(File.separator)).length - 1;
+		return Files.walk(fileOrDirectory);
 	}
 }

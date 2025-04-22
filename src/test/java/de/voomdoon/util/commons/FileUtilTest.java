@@ -9,7 +9,10 @@ import java.util.List;
 
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+import de.voomdoon.testing.file.TempFileExtension;
+import de.voomdoon.testing.file.TempInputDirectory;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
@@ -29,161 +32,200 @@ class FileUtilTest {
 	 * @since 0.1.0
 	 */
 	@Nested
+	@ExtendWith(TempFileExtension.class)
 	class ListFilesTest extends TestBase {
 
 		/**
-		 * DOCME add JavaDoc for method test_directoryAtRoot
-		 * 
-		 * @since 0.1.0
+		 * @since 0.2.0
 		 */
 		@Test
-		void test_directoryAtRoot() throws Exception {
+		void test_directoriesAreExcluded(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			new File(getTempDirectory() + "/directory").mkdir();
+			new File(directory, "subDir").mkdirs();
 
-			List<File> actuals = FileUtil.listFiles(getTempDirectory(), null, null);
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), 1, null);
 
 			assertThat(actuals).isEmpty();
 		}
 
 		/**
-		 * DOCME add JavaDoc for method test_empty
-		 * 
 		 * @since 0.1.0
 		 */
+		@Deprecated
 		@Test
-		void test_empty_isEmpty() throws Exception {
+		void test_directoryAtRoot(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			List<File> actuals = FileUtil.listFiles(getTempDirectory(), null, null);
+			directory.mkdirs();
+
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), null, null);
 
 			assertThat(actuals).isEmpty();
 		}
 
 		/**
-		 * DOCME add JavaDoc for method test_fileAtDirectory
-		 * 
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_fileAtDirectory() throws Exception {
+		void test_empty_isEmpty(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			File directory = new File(getTempDirectory() + "/directory");
-			directory.mkdir();
+			directory.mkdirs();
 
-			Path file = Path.of(directory.toString(), "file");
-			Files.writeString(file, "content");
-
-			List<File> actuals = FileUtil.listFiles(getTempDirectory(), null, null);
-
-			assertThat(actuals).containsExactly(file.toFile());
-		}
-
-		/**
-		 * DOCME add JavaDoc for method test_fileAtDirectory
-		 * 
-		 * @since 0.1.0
-		 */
-		@Test
-		void test_fileAtDirectory_maxDepthOne_hasFile() throws Exception {
-			logTestStart();
-
-			File directory = new File(getTempDirectory() + "/directory");
-			directory.mkdir();
-
-			Path file = Path.of(directory.toString(), "file");
-			Files.writeString(file, "content");
-
-			List<File> actuals = FileUtil.listFiles(getTempDirectory(), 1, null);
-
-			assertThat(actuals).containsExactly(file.toFile());
-		}
-
-		/**
-		 * DOCME add JavaDoc for method test_fileAtDirectory
-		 * 
-		 * @since 0.1.0
-		 */
-		@Test
-		void test_fileAtDirectory_maxDepthZero_isEmpty() throws Exception {
-			logTestStart();
-
-			File directory = new File(getTempDirectory() + "/directory");
-			directory.mkdir();
-
-			Path file = Path.of(directory.toString(), "file");
-			Files.writeString(file, "content");
-
-			List<File> actuals = FileUtil.listFiles(getTempDirectory(), 0, null);
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), null, null);
 
 			assertThat(actuals).isEmpty();
 		}
 
 		/**
-		 * DOCME add JavaDoc for method test_file
-		 * 
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_fileAtRoot() throws Exception {
+		void test_fileAtDirectory(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			Path file = Path.of(getTempDirectory().toString(), "file");
+			directory.mkdirs();
+
+			Path file = Path.of(directory.toString(), "file");
 			Files.writeString(file, "content");
 
-			List<File> actuals = FileUtil.listFiles(getTempDirectory(), null, null);
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), null, null);
 
 			assertThat(actuals).containsExactly(file.toFile());
 		}
 
 		/**
-		 * DOCME add JavaDoc for method test_fileFilter_accept
-		 * 
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_fileFilter_accept() throws Exception {
+		void test_fileAtDirectory_maxDepthOne_hasFile(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			Path file = Path.of(getTempDirectory().toString(), "accept");
+			directory.mkdirs();
+
+			Path file = Path.of(directory.toString(), "file");
 			Files.writeString(file, "content");
 
-			List<File> actuals = FileUtil.listFiles(getTempDirectory(), null,
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), 1, null);
+
+			assertThat(actuals).containsExactly(file.toFile());
+		}
+
+		/**
+		 * @since 0.1.0
+		 */
+		@Test
+		void test_fileAtDirectory_maxDepthZero_isEmpty(@TempInputDirectory File directory) throws Exception {
+			logTestStart();
+
+			directory.mkdirs();
+
+			Path file = Path.of(directory.toString(), "file");
+			Files.writeString(file, "content");
+
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), 0, null);
+
+			assertThat(actuals).isEmpty();
+		}
+
+		/**
+		 * @since 0.1.0
+		 */
+		@Test
+		void test_fileAtRoot(@TempInputDirectory File directory) throws Exception {
+			logTestStart();
+
+			directory.mkdirs();
+
+			Path file = Path.of(directory.toString(), "file");
+			Files.writeString(file, "content");
+
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), null, null);
+
+			assertThat(actuals).containsExactly(file.toFile());
+		}
+
+		/**
+		 * @since 0.2.0
+		 */
+		@Test
+		void test_fileAtSubDirectory_maxDepthOne_isEmpty(@TempInputDirectory File directory) throws Exception {
+			logTestStart();
+
+			File subDir = new File(directory, "sub");
+			subDir.mkdirs();
+			Path nestedFile = subDir.toPath().resolve("file.txt");
+			Files.writeString(nestedFile, "nested");
+
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), 1, null);
+
+			assertThat(actuals).isEmpty();
+		}
+
+		/**
+		 * @since 0.2.0
+		 */
+		@Test
+		void test_fileAtSubDirectory_maxDepthTwo_hasFile(@TempInputDirectory File directory) throws Exception {
+			logTestStart();
+
+			File subDir = new File(directory, "sub");
+			subDir.mkdirs();
+			Path nestedFile = subDir.toPath().resolve("file.txt");
+			Files.writeString(nestedFile, "nested");
+
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), 2, null);
+
+			assertThat(actuals).containsExactly(nestedFile.toFile());
+		}
+
+		/**
+		 * @since 0.1.0
+		 */
+		@Test
+		void test_fileFilter_accept(@TempInputDirectory File directory) throws Exception {
+			logTestStart();
+
+			directory.mkdirs();
+
+			Path file = Path.of(directory.toString(), "accept");
+			Files.writeString(file, "content");
+
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), null,
 					pathname -> pathname.toString().contains("accept"));
 
 			assertThat(actuals).containsExactly(file.toFile());
 		}
 
 		/**
-		 * DOCME add JavaDoc for method test_fileFilter_reject
-		 * 
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_fileFilter_reject() throws Exception {
+		void test_fileFilter_reject(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			Path file = Path.of(getTempDirectory().toString(), "rejct");
+			directory.mkdirs();
+
+			Path file = Path.of(directory.toString(), "rejct");
 			Files.writeString(file, "content");
 
-			List<File> actuals = FileUtil.listFiles(getTempDirectory(), null,
+			List<File> actuals = FileUtil.listFiles(directory.toPath(), null,
 					pathname -> pathname.toString().contains("accept"));
 
 			assertThat(actuals).isEmpty();
 		}
 
 		/**
-		 * DOCME add JavaDoc for method test_fileItself
-		 * 
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_fileItself() throws Exception {
+		void test_fileItself(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			Path file = Path.of(getTempDirectory().toString(), "file");
+			directory.mkdirs();
+
+			Path file = Path.of(directory.toString(), "file");
 			Files.writeString(file, "content");
 
 			List<File> actuals = FileUtil.listFiles(file, null, null);
