@@ -13,6 +13,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import de.voomdoon.testing.file.TempFileExtension;
 import de.voomdoon.testing.file.TempInputDirectory;
+import de.voomdoon.testing.file.WithTempInputDirectories;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
@@ -33,6 +34,7 @@ class FileUtilTest {
 	 */
 	@Nested
 	@ExtendWith(TempFileExtension.class)
+	@WithTempInputDirectories(create = true)
 	class ListFilesTest extends TestBase {
 
 		/**
@@ -57,8 +59,6 @@ class FileUtilTest {
 		void test_directoryAtRoot(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			directory.mkdirs();
-
 			List<File> actuals = FileUtil.listFiles(directory.toPath(), null, null);
 
 			assertThat(actuals).isEmpty();
@@ -71,8 +71,6 @@ class FileUtilTest {
 		void test_empty_isEmpty(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			directory.mkdirs();
-
 			List<File> actuals = FileUtil.listFiles(directory.toPath(), null, null);
 
 			assertThat(actuals).isEmpty();
@@ -84,8 +82,6 @@ class FileUtilTest {
 		@Test
 		void test_fileAtDirectory(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
-
-			directory.mkdirs();
 
 			Path file = Path.of(directory.toString(), "file");
 			Files.writeString(file, "content");
@@ -102,8 +98,6 @@ class FileUtilTest {
 		void test_fileAtDirectory_maxDepthOne_hasFile(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			directory.mkdirs();
-
 			Path file = Path.of(directory.toString(), "file");
 			Files.writeString(file, "content");
 
@@ -119,8 +113,6 @@ class FileUtilTest {
 		void test_fileAtDirectory_maxDepthZero_isEmpty(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			directory.mkdirs();
-
 			Path file = Path.of(directory.toString(), "file");
 			Files.writeString(file, "content");
 
@@ -135,8 +127,6 @@ class FileUtilTest {
 		@Test
 		void test_fileAtRoot(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
-
-			directory.mkdirs();
 
 			Path file = Path.of(directory.toString(), "file");
 			Files.writeString(file, "content");
@@ -187,8 +177,6 @@ class FileUtilTest {
 		void test_fileFilter_accept(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			directory.mkdirs();
-
 			Path file = Path.of(directory.toString(), "accept");
 			Files.writeString(file, "content");
 
@@ -205,8 +193,6 @@ class FileUtilTest {
 		void test_fileFilter_reject(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
 
-			directory.mkdirs();
-
 			Path file = Path.of(directory.toString(), "rejct");
 			Files.writeString(file, "content");
 
@@ -222,8 +208,6 @@ class FileUtilTest {
 		@Test
 		void test_fileItself(@TempInputDirectory File directory) throws Exception {
 			logTestStart();
-
-			directory.mkdirs();
 
 			Path file = Path.of(directory.toString(), "file");
 			Files.writeString(file, "content");
