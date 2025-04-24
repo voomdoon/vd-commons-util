@@ -21,7 +21,7 @@ import de.voomdoon.testing.tests.TestBase;
 public class AwtParsingUtilTest {
 
 	/**
-	 * Test class for {@link ArrayParsingUtil}.
+	 * Tests for {@link ArrayParsingUtil}.
 	 *
 	 * @author André Schulz
 	 *

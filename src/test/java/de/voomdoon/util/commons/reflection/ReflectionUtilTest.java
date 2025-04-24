@@ -20,7 +20,7 @@ import de.voomdoon.testing.tests.TestBase;
 public class ReflectionUtilTest {
 
 	/**
-	 * Test class for {@link ReflectionUtil#getStaticFieldValue(Class, String, Class)}.
+	 * Tests for {@link ReflectionUtil#getStaticFieldValue(Class, String, Class)}.
 	 *
 	 * @author André Schulz
 	 *

@@ -17,7 +17,7 @@ import de.voomdoon.testing.tests.TestBase;
 import de.voomdoon.util.commons.SystemOutput.MyRunnable;
 
 /**
- * Test class for {@link SystemOutput}.
+ * Tests for {@link SystemOutput}.
  *
  * @author André Schulz
  *
@@ -26,7 +26,7 @@ import de.voomdoon.util.commons.SystemOutput.MyRunnable;
 class SystemOutputTest extends TestBase {
 
 	/**
-	 * Test class for {@link SystemOutput#log(Logger)}.
+	 * Tests for {@link SystemOutput#log(Logger)}.
 	 *
 	 * @author André Schulz
 	 *
@@ -94,7 +94,7 @@ class SystemOutputTest extends TestBase {
 	}
 
 	/**
-	 * Test class for {@link SystemOutput#run(Runnable)}.
+	 * Tests for {@link SystemOutput#run(Runnable)}.
 	 *
 	 * @author André Schulz
 	 *
@@ -234,7 +234,7 @@ class SystemOutputTest extends TestBase {
 	}
 
 	/**
-	 * Test class for {@link SystemOutput#runWithCatch(Runnable)}.
+	 * Tests for {@link SystemOutput#runWithCatch(Runnable)}.
 	 *
 	 * @author André Schulz
 	 *
