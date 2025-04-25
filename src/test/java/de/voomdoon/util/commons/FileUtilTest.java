@@ -17,7 +17,7 @@ import de.voomdoon.testing.file.WithTempInputDirectories;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
- * DOCME add JavaDoc for
+ * Tests for {@link FileUtil}.
  *
  * @author André Schulz
  *
@@ -26,7 +26,7 @@ import de.voomdoon.testing.tests.TestBase;
 class FileUtilTest {
 
 	/**
-	 * DOCME add JavaDoc for FileUtilTest
+	 * Tests for {@link FileUtil#listFiles(Path, Integer, FileFilter)}.
 	 *
 	 * @author André Schulz
 	 *

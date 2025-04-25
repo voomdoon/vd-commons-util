@@ -40,6 +40,14 @@ public class ToBlockStringGenerator {
 	 */
 	private static final String TOP = "▀";
 
+	/**
+	 * DOCME add JavaDoc for method addFirstPassElement
+	 * 
+	 * @param row
+	 * @param output
+	 * @param j
+	 * @since 0.1.0
+	 */
 	private static void addFirstPassElement(boolean[] row, List<String> output, int j) {
 		if (row[j]) {
 			output.add(TOP);
@@ -66,6 +74,15 @@ public class ToBlockStringGenerator {
 		}
 	}
 
+	/**
+	 * 
+	 * DOCME add JavaDoc for method updateSecondPassElement
+	 * 
+	 * @param row
+	 * @param output
+	 * @param j
+	 * @since 0.1.0
+	 */
 	private static void updateSecondPassElement(boolean[] row, List<String> output, int j) {
 		if (j > output.size() - 1) {
 			if (row[j]) {
@@ -95,7 +112,8 @@ public class ToBlockStringGenerator {
 	 * DOCME add JavaDoc for method toBlockString
 	 * 
 	 * @param array
-	 * @return
+	 *            2d boolean array
+	 * @return {@link String}
 	 * @since 0.1.0
 	 */
 	public String toString(boolean[][] array) {
@@ -124,6 +142,11 @@ public class ToBlockStringGenerator {
 		return sb.toString();
 	}
 
+	/**
+	 * @param sb
+	 * @param output
+	 * @since 0.1.0
+	 */
 	private void appenNewLine(StringBuilder sb, List<String> output) {
 		if (sb.length() > 0) {
 			sb.append("\n");

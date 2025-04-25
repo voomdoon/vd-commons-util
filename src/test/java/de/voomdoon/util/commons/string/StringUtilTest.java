@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import de.voomdoon.testing.tests.TestBase;
 
 /**
- * DOCME add JavaDoc for
+ * Tests for {@link StringUtil}.
  *
  * @author André Schulz
  *
