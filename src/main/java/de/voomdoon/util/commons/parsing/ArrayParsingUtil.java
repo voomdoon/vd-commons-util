@@ -33,6 +33,7 @@ public class ArrayParsingUtil {
 	 * @see ToBlockStringGenerator
 	 */
 	public static boolean[][] parseBooleanArray2(String string) {
+		// TODO convert to handler "BooleanArrayParser", move format from data to configuration
 		if (string.startsWith("full line\n")) {
 			return parseBooleanArray2WithFullLineBlocks(string);
 		} else if (string.contains("0") || string.contains("1")) {

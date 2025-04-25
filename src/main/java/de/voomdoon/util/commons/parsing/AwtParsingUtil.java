@@ -28,6 +28,7 @@ public class AwtParsingUtil {
 	 * @since 0.1.0
 	 */
 	public static Color parseColor(final String value) throws ParseException {
+		// TODO unify with ColorParser
 		try {
 			return ReflectionUtil.getStaticFieldValue(Color.class, value, Color.class);
 		} catch (NoSuchFieldException e) {
