@@ -28,7 +28,7 @@ public class ArrayParsingUtil {
 	 * </ul>
 	 * 
 	 * @param string
-	 * @return bollean[][]
+	 * @return boolean[][]
 	 * @since 0.1.0
 	 * @see ToBlockStringGenerator
 	 */

@@ -6,7 +6,7 @@ import java.lang.reflect.Modifier;
 import lombok.experimental.UtilityClass;
 
 /**
- * DOCME add JavaDoc for
+ * Utility class for reflection.
  *
  * @author André Schulz
  *

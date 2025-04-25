@@ -78,6 +78,7 @@ public class BooleanArrayUtil {
 	 * DOCME add JavaDoc for method isEmpty
 	 * 
 	 * @param matrix
+	 *            2d boolean array
 	 * @return
 	 * @since 0.1.0
 	 */
@@ -94,10 +95,11 @@ public class BooleanArrayUtil {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method toMatrix
+	 * Converts a list of boolean arrays into a matrix.
 	 * 
 	 * @param rows
-	 * @return
+	 *            {@link List}
+	 * @return 2d boolean array
 	 * @since 0.1.0
 	 */
 	private static boolean[][] toMatrix(List<boolean[]> rows) {
