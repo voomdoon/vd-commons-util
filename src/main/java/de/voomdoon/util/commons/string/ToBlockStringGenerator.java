@@ -138,7 +138,6 @@ public class ToBlockStringGenerator {
 			appenNewLine(sb, output);
 		}
 
-		// TODO implement toString
 		return sb.toString();
 	}
 

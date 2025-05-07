@@ -32,6 +32,5 @@ public class BooleanArrayCalculator {
 		}
 
 		return result;
-		// TODO implement or
 	}
 }
