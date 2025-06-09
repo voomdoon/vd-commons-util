@@ -75,26 +75,6 @@ public class BooleanArrayUtil {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method isEmpty
-	 * 
-	 * @param matrix
-	 *            2d boolean array
-	 * @return
-	 * @since 0.1.0
-	 */
-	public static boolean isEmpty(boolean[][] matrix) {
-		for (int i = 0; i < matrix.length; i++) {
-			for (int j = 0; j < matrix[i].length; j++) {
-				if (matrix[i][j]) {
-					return false;
-				}
-			}
-		}
-
-		return true;
-	}
-
-	/**
 	 * Converts a list of boolean arrays into a matrix.
 	 * 
 	 * @param rows
