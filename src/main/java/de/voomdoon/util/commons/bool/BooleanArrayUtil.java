@@ -112,26 +112,4 @@ public class BooleanArrayUtil {
 
 		return count;
 	}
-
-	/**
-	 * DOCME add JavaDoc for method countTue
-	 * 
-	 * @param matrix
-	 * @return
-	 * @since 0.1.0
-	 */
-	public int countTrue(boolean[][] matrix) {
-		int count = 0;
-
-		for (int i = 0; i < matrix.length; i++) {
-			// not using countTrue(boolean[]) for better performance
-			for (int j = 0; j < matrix[i].length; j++) {
-				if (matrix[i][j]) {
-					count++;
-				}
-			}
-		}
-
-		return count;
-	}
 }
