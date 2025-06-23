@@ -18,63 +18,6 @@ import lombok.experimental.UtilityClass;
 public class BooleanArrayUtil {
 
 	/**
-	 * Method trims an matrix so that at any border will be a {@code true} value.
-	 *
-	 * @param matrix
-	 *            the array to trim
-	 * @return
-	 *         <ul>
-	 *         <li>Empty array if given array is empty or contains no {@code true} value.</li>
-	 *         </ul>
-	 * @since 0.1.0
-	 */
-	public static boolean[][] getTrimmed(boolean[][] matrix) {
-		// OPTIMIZE speed: search for boundaries first and copy over then
-
-		List<boolean[]> rows = new ArrayList<>();
-		List<boolean[]> rowsEmpty = new ArrayList<>();
-
-		boolean foundTrue = false;
-
-		for (int iRow = 0; iRow < matrix.length; iRow++) {
-			int countTrue = countTrue(matrix[iRow]);
-
-			if (foundTrue || countTrue > 0) {
-				foundTrue = true;
-
-				if (countTrue == 0) {
-					rowsEmpty.add(matrix[iRow]);
-				} else {
-					rows.addAll(rowsEmpty);
-					rowsEmpty.clear();
-					rows.add(matrix[iRow]);
-				}
-			}
-		}
-
-		int firstTrue = Integer.MAX_VALUE;
-		int lastTrue = Integer.MIN_VALUE;
-
-		for (boolean[] row : rows) {
-			int index = ArrayUtils.indexOf(row, true);
-
-			if (index > -1) {
-				firstTrue = Math.min(firstTrue, index);
-			}
-
-			lastTrue = Math.max(lastTrue, ArrayUtils.lastIndexOf(row, true));
-		}
-
-		for (int iRow = 0; iRow < rows.size(); iRow++) {
-			boolean[] rowResult = new boolean[lastTrue - firstTrue + 1];
-			System.arraycopy(rows.get(iRow), firstTrue, rowResult, 0, lastTrue - firstTrue + 1);
-			rows.set(iRow, rowResult);
-		}
-
-		return toMatrix(rows);
-	}
-
-	/**
 	 * Converts a list of boolean arrays into a matrix.
 	 * 
 	 * @param rows
