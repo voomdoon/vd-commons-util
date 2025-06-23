@@ -1,10 +1,5 @@
 package de.voomdoon.util.commons.bool;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.apache.commons.lang3.ArrayUtils;
-
 import lombok.experimental.UtilityClass;
 
 /**
@@ -16,26 +11,6 @@ import lombok.experimental.UtilityClass;
  */
 @UtilityClass
 public class BooleanArrayUtil {
-
-	/**
-	 * Converts a list of boolean arrays into a matrix.
-	 * 
-	 * @param rows
-	 *            {@link List}
-	 * @return 2d boolean array
-	 * @since 0.1.0
-	 */
-	private static boolean[][] toMatrix(List<boolean[]> rows) {
-		boolean[][] result = new boolean[rows.size()][];
-
-		int iRow = 0;
-
-		for (boolean[] row : rows) {
-			result[iRow++] = row;
-		}
-
-		return result;
-	}
 
 	/**
 	 * DOCME add JavaDoc for method countTrue
