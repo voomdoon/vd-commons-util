@@ -13,6 +13,17 @@
 	<artifactId>vd-commons-util</artifactId>
 	<version>0.2.0-SNAPSHOT</version>
 
+	<name>vd-commons-util</name>
+	<description>testing framework for files</description>
+	<url>https://github.com/voomdoon/vd-commons-util</url>
+
+	<scm>
+		<url>https://github.com/voomdoon/vd-commons-util</url>
+		<connection>scm:git:https://github.com/voomdoon/vd-commons-util.git</connection>
+		<developerConnection>scm:git:git@github.com:voomdoon/vd-commons-util.git</developerConnection>
+		<tag>HEAD</tag>
+	</scm>
+
 	<properties>
 		<junit-jupiter.version>6.0.1</junit-jupiter.version>
 	</properties>
