@@ -6,8 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import de.voomdoon.testing.tests.TestBase;
-
 /**
  * Tests for {@link StringUtil}.
  *
@@ -18,22 +16,20 @@ import de.voomdoon.testing.tests.TestBase;
 class StringUtilTest {
 
 	/**
-	 * DOCME add JavaDoc for StringUtilTest
+	 * Tests for {@link StringUtil#countLeadingSpaces(String)}.
 	 *
 	 * @author André Schulz
 	 *
 	 * @since 0.1.0
 	 */
 	@Nested
-	class CountLeadingSpacesTest extends TestBase {
+	class CountLeadingSpacesTest {
 
 		/**
 		 * @since 0.1.0
 		 */
 		@Test
 		void test_empty() {
-			logTestStart();
-
 			String string = "";
 
 			int actual = StringUtil.countLeadingSpaces(string);
@@ -45,9 +41,7 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_error_null_NPE() throws Exception {
-			logTestStart();
-
+		void test_error_null_NPE() {
 			NullPointerException actual = assertThrows(NullPointerException.class,
 					() -> StringUtil.countLeadingSpaces(null));
 
@@ -58,9 +52,7 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_noSpace() throws Exception {
-			logTestStart();
-
+		void test_noSpace() {
 			String string = "test";
 
 			int actual = StringUtil.countLeadingSpaces(string);
@@ -72,9 +64,7 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_traling() throws Exception {
-			logTestStart();
-
+		void test_traling() {
 			String string = "test ";
 
 			int actual = StringUtil.countLeadingSpaces(string);
@@ -86,9 +76,7 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test1() throws Exception {
-			logTestStart();
-
+		void test1() {
 			String string = " test";
 
 			int actual = StringUtil.countLeadingSpaces(string);
@@ -100,9 +88,7 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test2() throws Exception {
-			logTestStart();
-
+		void test2() {
 			String string = "  test";
 
 			int actual = StringUtil.countLeadingSpaces(string);
@@ -112,22 +98,20 @@ class StringUtilTest {
 	}
 
 	/**
-	 * DOCME add JavaDoc for StringUtilTest
+	 * Tests for {@link StringUtil#countTrailingSpaces(String)}.
 	 *
 	 * @author André Schulz
 	 *
 	 * @since 0.1.0
 	 */
 	@Nested
-	class CountTrailingSpacesTest extends TestBase {
+	class CountTrailingSpacesTest {
 
 		/**
 		 * @since 0.1.0
 		 */
 		@Test
 		void test_empty() {
-			logTestStart();
-
 			String string = "";
 
 			int actual = StringUtil.countTrailingSpaces(string);
@@ -139,9 +123,7 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_error_null_NPE() throws Exception {
-			logTestStart();
-
+		void test_error_null_NPE() {
 			NullPointerException actual = assertThrows(NullPointerException.class,
 					() -> StringUtil.countTrailingSpaces(null));
 
@@ -152,9 +134,7 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_leading() throws Exception {
-			logTestStart();
-
+		void test_leading() {
 			String string = " test";
 
 			int actual = StringUtil.countTrailingSpaces(string);
@@ -166,9 +146,7 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_noSpace() throws Exception {
-			logTestStart();
-
+		void test_noSpace() {
 			String string = "test";
 
 			int actual = StringUtil.countTrailingSpaces(string);
@@ -180,9 +158,7 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test1() throws Exception {
-			logTestStart();
-
+		void test1() {
 			String string = "test ";
 
 			int actual = StringUtil.countTrailingSpaces(string);
@@ -194,9 +170,7 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
-		void test2() throws Exception {
-			logTestStart();
-
+		void test2() {
 			String string = "test  ";
 
 			int actual = StringUtil.countTrailingSpaces(string);

@@ -8,8 +8,6 @@ import java.awt.Color;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import de.voomdoon.testing.tests.TestBase;
-
 /**
  * Tests for {@link ReflectionUtil}.
  *
@@ -27,28 +25,23 @@ public class ReflectionUtilTest {
 	 * @since 0.1.0
 	 */
 	@Nested
-	class GetStaticFieldValueTest extends TestBase {
+	class GetStaticFieldValueTest {
 
 		/**
-		 * @throws Exception
+		 * @throws NoSuchFieldException
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_Color() throws Exception {
-			logTestStart();
-
+		void test_Color() throws NoSuchFieldException {
 			Color actual = ReflectionUtil.getStaticFieldValue(Color.class, "RED", Color.class);
 			assertThat(actual).isEqualTo(Color.RED);
 		}
 
 		/**
-		 * @throws Exception
 		 * @since 0.1.0
 		 */
 		@Test
-		void test_NoSuchFieldException_unknownField() throws Exception {
-			logTestStart();
-
+		void test_NoSuchFieldException_unknownField() {
 			assertThrows(NoSuchFieldException.class,
 					() -> ReflectionUtil.getStaticFieldValue(Color.class, "UNKNOWN_FIELD", Color.class));
 		}
