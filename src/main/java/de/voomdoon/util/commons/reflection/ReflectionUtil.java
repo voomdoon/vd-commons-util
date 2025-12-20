@@ -37,7 +37,7 @@ public class ReflectionUtil {
 
 					return result;
 				} catch (IllegalArgumentException | IllegalAccessException e) {
-					throw new IllegalStateException(
+					throw new RuntimeException(
 							"Unexpected error while getting value from " + field + ": " + e.getMessage(), e);
 				}
 			}
