@@ -14,7 +14,7 @@
 	<version>0.2.0-SNAPSHOT</version>
 
 	<name>vd-commons-util</name>
-	<description>testing framework for files</description>
+	<description>common utility functions and helpers</description>
 	<url>https://github.com/voomdoon/vd-commons-util</url>
 
 	<scm>
