@@ -3,8 +3,13 @@ package de.voomdoon.util.commons.string;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.util.stream.Stream;
+
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 /**
  * Tests for {@link StringUtil}.
@@ -28,13 +33,11 @@ class StringUtilTest {
 		/**
 		 * @since 0.1.0
 		 */
-		@Test
-		void test_empty() {
-			String string = "";
-
-			int actual = StringUtil.countLeadingSpaces(string);
-
-			assertThat(actual).isZero();
+		static Stream<Arguments> noLeadingSpacesTestProvider() {
+			return Stream.of(//
+					Arguments.of("empty", ""), //
+					Arguments.of("noSpace", "test"), //
+					Arguments.of("trailingSpace", "test "));
 		}
 
 		/**
@@ -51,22 +54,9 @@ class StringUtilTest {
 		/**
 		 * @since 0.1.0
 		 */
-		@Test
-		void test_noSpace() {
-			String string = "test";
-
-			int actual = StringUtil.countLeadingSpaces(string);
-
-			assertThat(actual).isZero();
-		}
-
-		/**
-		 * @since 0.1.0
-		 */
-		@Test
-		void test_traling() {
-			String string = "test ";
-
+		@ParameterizedTest(name = "{0}")
+		@MethodSource("noLeadingSpacesTestProvider")
+		void test_noLeadingSpaces(String label, String string) {
 			int actual = StringUtil.countLeadingSpaces(string);
 
 			assertThat(actual).isZero();
@@ -110,13 +100,11 @@ class StringUtilTest {
 		/**
 		 * @since 0.1.0
 		 */
-		@Test
-		void test_empty() {
-			String string = "";
-
-			int actual = StringUtil.countTrailingSpaces(string);
-
-			assertThat(actual).isZero();
+		static Stream<Arguments> noTrailingSpacesTestProvider() {
+			return Stream.of(//
+					Arguments.of("empty", ""), //
+					Arguments.of("noSpace", "test"), //
+					Arguments.of("leadingSpace", " test"));
 		}
 
 		/**
@@ -133,22 +121,9 @@ class StringUtilTest {
 		/**
 		 * @since 0.1.0
 		 */
-		@Test
-		void test_leading() {
-			String string = " test";
-
-			int actual = StringUtil.countTrailingSpaces(string);
-
-			assertThat(actual).isZero();
-		}
-
-		/**
-		 * @since 0.1.0
-		 */
-		@Test
-		void test_noSpace() {
-			String string = "test";
-
+		@ParameterizedTest(name = "{0}")
+		@MethodSource("noTrailingSpacesTestProvider")
+		void test_noTrailingSpaces(String label, String string) {
 			int actual = StringUtil.countTrailingSpaces(string);
 
 			assertThat(actual).isZero();
