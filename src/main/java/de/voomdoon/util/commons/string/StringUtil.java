@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 import lombok.experimental.UtilityClass;
 
 /**
- * DOCME add JavaDoc for
+ * Utility methods for {@link String}s.
  *
  * @author André Schulz
  *
@@ -27,10 +27,11 @@ public class StringUtil {
 	private static final Pattern TRALING_SPACES_PATTERN = Pattern.compile(" *$");
 
 	/**
-	 * DOCME add JavaDoc for method countLeadingSpaces
+	 * Returns the amount of leading spaces in the given {@link String}.
 	 * 
 	 * @param string
-	 * @return
+	 *            {@link String}
+	 * @return amount of leading spaces
 	 * @since 0.1.0
 	 */
 	public static int countLeadingSpaces(String string) {
@@ -40,10 +41,11 @@ public class StringUtil {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method countTrailingSpaces
+	 * Returns the amount of trailing spaces in the given {@link String}.
 	 * 
 	 * @param string
-	 * @return
+	 *            {@link String}
+	 * @return amount of trailing spaces
 	 * @since 0.1.0
 	 */
 	public static int countTrailingSpaces(String string) {
@@ -53,11 +55,11 @@ public class StringUtil {
 	}
 
 	/**
-	 * DOCME add JavaDoc for method countPattern
-	 * 
 	 * @param string
+	 *            {@link String}
 	 * @param pattern
-	 * @return
+	 *            {@link Pattern}
+	 * @return amount of characters in the first match of the pattern in the string
 	 * @since 0.1.0
 	 */
 	private static int countPattern(String string, Pattern pattern) {
