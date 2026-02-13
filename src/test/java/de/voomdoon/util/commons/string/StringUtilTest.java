@@ -31,7 +31,7 @@ class StringUtilTest {
 	class CountLeadingSpacesTest {
 
 		/**
-		 * @since 0.1.0
+		 * @since 0.2.0
 		 */
 		static Stream<Arguments> noLeadingSpacesTestProvider() {
 			return Stream.of(//
@@ -52,7 +52,7 @@ class StringUtilTest {
 		}
 
 		/**
-		 * @since 0.1.0
+		 * @since 0.2.0
 		 */
 		@ParameterizedTest(name = "{0}")
 		@MethodSource("noLeadingSpacesTestProvider")
@@ -98,7 +98,7 @@ class StringUtilTest {
 	class CountTrailingSpacesTest {
 
 		/**
-		 * @since 0.1.0
+		 * @since 0.2.0
 		 */
 		static Stream<Arguments> noTrailingSpacesTestProvider() {
 			return Stream.of(//
@@ -119,7 +119,7 @@ class StringUtilTest {
 		}
 
 		/**
-		 * @since 0.1.0
+		 * @since 0.2.0
 		 */
 		@ParameterizedTest(name = "{0}")
 		@MethodSource("noTrailingSpacesTestProvider")
