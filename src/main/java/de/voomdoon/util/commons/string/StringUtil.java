@@ -24,7 +24,7 @@ public class StringUtil {
 	/**
 	 * @since 0.1.0
 	 */
-	private static final Pattern TRALING_SPACES_PATTERN = Pattern.compile(" *$");
+	private static final Pattern TRAILING_SPACES_PATTERN = Pattern.compile(" *$");
 
 	/**
 	 * Returns the amount of leading spaces in the given {@link String}.
@@ -51,7 +51,7 @@ public class StringUtil {
 	public static int countTrailingSpaces(String string) {
 		Objects.requireNonNull(string, "string");
 
-		return countPattern(string, TRALING_SPACES_PATTERN);
+		return countPattern(string, TRAILING_SPACES_PATTERN);
 	}
 
 	/**
