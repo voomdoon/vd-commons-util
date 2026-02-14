@@ -6,6 +6,8 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
 /**
  * Tests for {@link WhitespaceCounter}.
@@ -29,37 +31,17 @@ class WhitespaceCounterTest {
 		/**
 		 * @since 0.2.0
 		 */
-		@Test
-		void testCountsLeadingSingleX() {
+		@ParameterizedTest(name = "{2}")
+		@CsvSource({ //
+				"'x',1,'single x'", //
+				"'xxxabc',3,'leading block'", //
+				"'',0,'empty string'" })
+		void testCountLeading(String input, int expected, String label) {
 			WhitespaceCounter counter = new WhitespaceCounter(X_CLASSIFIER);
 
-			int actual = counter.countLeading("x");
+			int actual = counter.countLeading(input);
 
-			assertThat(actual).isEqualTo(1);
-		}
-
-		/**
-		 * @since 0.2.0
-		 */
-		@Test
-		void testCountsLeadingXs() {
-			WhitespaceCounter counter = new WhitespaceCounter(X_CLASSIFIER);
-
-			int actual = counter.countLeading("xxxabc");
-
-			assertThat(actual).isEqualTo(3);
-		}
-
-		/**
-		 * @since 0.2.0
-		 */
-		@Test
-		void testEmptyStringIsZero() {
-			WhitespaceCounter counter = new WhitespaceCounter(X_CLASSIFIER);
-
-			int actual = counter.countLeading("");
-
-			assertThat(actual).isZero();
+			assertThat(actual).isEqualTo(expected);
 		}
 
 		/**
@@ -112,37 +94,17 @@ class WhitespaceCounterTest {
 		/**
 		 * @since 0.2.0
 		 */
-		@Test
-		void testCountsTrailingSingleX() {
+		@ParameterizedTest(name = "{2}")
+		@CsvSource({ //
+				"'x',1,'single x'", //
+				"'abcxxx',3,'trailing block'", //
+				"'',0,'empty string'" })
+		void testCountTrailing(String input, int expected, String label) {
 			WhitespaceCounter counter = new WhitespaceCounter(X_CLASSIFIER);
 
-			int actual = counter.countTrailing("x");
+			int actual = counter.countTrailing(input);
 
-			assertThat(actual).isEqualTo(1);
-		}
-
-		/**
-		 * @since 0.2.0
-		 */
-		@Test
-		void testCountsTrailingXs() {
-			WhitespaceCounter counter = new WhitespaceCounter(X_CLASSIFIER);
-
-			int actual = counter.countTrailing("abcxxx");
-
-			assertThat(actual).isEqualTo(3);
-		}
-
-		/**
-		 * @since 0.2.0
-		 */
-		@Test
-		void testEmptyStringIsZero() {
-			WhitespaceCounter counter = new WhitespaceCounter(X_CLASSIFIER);
-
-			int actual = counter.countTrailing("");
-
-			assertThat(actual).isZero();
+			assertThat(actual).isEqualTo(expected);
 		}
 
 		/**
