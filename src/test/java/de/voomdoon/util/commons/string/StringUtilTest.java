@@ -44,6 +44,30 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
+		void test_1LeadingSpace() {
+			String string = " test";
+
+			int actual = StringUtil.countLeadingSpaces(string);
+
+			assertThat(actual).isEqualTo(1);
+		}
+
+		/**
+		 * @since 0.1.0
+		 */
+		@Test
+		void test_2LeadingSpaces() {
+			String string = "  test";
+
+			int actual = StringUtil.countLeadingSpaces(string);
+
+			assertThat(actual).isEqualTo(2);
+		}
+
+		/**
+		 * @since 0.1.0
+		 */
+		@Test
 		void test_error_null_NPE() {
 			NullPointerException actual = assertThrows(NullPointerException.class,
 					() -> StringUtil.countLeadingSpaces(null));
@@ -60,30 +84,6 @@ class StringUtilTest {
 			int actual = StringUtil.countLeadingSpaces(string);
 
 			assertThat(actual).isZero();
-		}
-
-		/**
-		 * @since 0.1.0
-		 */
-		@Test
-		void test1() {
-			String string = " test";
-
-			int actual = StringUtil.countLeadingSpaces(string);
-
-			assertThat(actual).isEqualTo(1);
-		}
-
-		/**
-		 * @since 0.1.0
-		 */
-		@Test
-		void test2() {
-			String string = "  test";
-
-			int actual = StringUtil.countLeadingSpaces(string);
-
-			assertThat(actual).isEqualTo(2);
 		}
 	}
 
@@ -111,6 +111,30 @@ class StringUtilTest {
 		 * @since 0.1.0
 		 */
 		@Test
+		void test_1TrailingSpace() {
+			String string = "test ";
+
+			int actual = StringUtil.countTrailingSpaces(string);
+
+			assertThat(actual).isEqualTo(1);
+		}
+
+		/**
+		 * @since 0.1.0
+		 */
+		@Test
+		void test_2TrailingSpaces() {
+			String string = "test  ";
+
+			int actual = StringUtil.countTrailingSpaces(string);
+
+			assertThat(actual).isEqualTo(2);
+		}
+
+		/**
+		 * @since 0.1.0
+		 */
+		@Test
 		void test_error_null_NPE() {
 			NullPointerException actual = assertThrows(NullPointerException.class,
 					() -> StringUtil.countTrailingSpaces(null));
@@ -127,30 +151,6 @@ class StringUtilTest {
 			int actual = StringUtil.countTrailingSpaces(string);
 
 			assertThat(actual).isZero();
-		}
-
-		/**
-		 * @since 0.1.0
-		 */
-		@Test
-		void test1() {
-			String string = "test ";
-
-			int actual = StringUtil.countTrailingSpaces(string);
-
-			assertThat(actual).isEqualTo(1);
-		}
-
-		/**
-		 * @since 0.1.0
-		 */
-		@Test
-		void test2() {
-			String string = "test  ";
-
-			int actual = StringUtil.countTrailingSpaces(string);
-
-			assertThat(actual).isEqualTo(2);
 		}
 	}
 }
