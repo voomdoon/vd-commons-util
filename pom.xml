@@ -37,16 +37,6 @@
 	</dependencyManagement>
 
 	<dependencies>
-		<!-- + + + + + + + + + + compile dependencies + + + + + + + + + + -->
-		<!-- + + + + + external compile dependencies + + + + + -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.42</version>
-		</dependency>
-		<!-- - - - - - external compile dependencies - - - - - -->
-		<!-- - - - - - - - - - - compile dependencies - - - - - - - - - - -->
-
 		<!-- + + + + + + + + + + test dependencies + + + + + + + + + + -->
 		<!-- + + + + + external test dependencies + + + + + -->
 		<dependency>
@@ -58,11 +48,6 @@
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-engine</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter-params</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<!-- - - - - - external test dependencies - - - - - -->
