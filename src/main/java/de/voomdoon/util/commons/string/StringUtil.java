@@ -27,7 +27,7 @@ public class StringUtil {
 	private static final Pattern TRAILING_SPACES_PATTERN = Pattern.compile(" *$");
 
 	/**
-	 * Returns the amount of leading spaces in the given {@link String}.
+	 * Returns the amount of leading spaces ({@code ' '}) in the given {@link String}.
 	 * 
 	 * @param string
 	 *            {@link String}
@@ -41,7 +41,7 @@ public class StringUtil {
 	}
 
 	/**
-	 * Returns the amount of trailing spaces in the given {@link String}.
+	 * Returns the amount of trailing spaces ({@code ' '}) in the given {@link String}.
 	 * 
 	 * @param string
 	 *            {@link String}
@@ -63,13 +63,12 @@ public class StringUtil {
 	 * @since 0.1.0
 	 */
 	private static int countPattern(String string, Pattern pattern) {
-		int count = 0;
 		Matcher m = pattern.matcher(string);
 
 		if (m.find()) {
-			count = m.group().length();
+			return m.group().length();
 		}
 
-		return count;
+		return 0;
 	}
 }
