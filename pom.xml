@@ -9,7 +9,7 @@
 
 	<groupId>de.voomdoon.util</groupId>
 	<artifactId>vd-commons-util</artifactId>
-	<version>0.2.0</version>
+	<version>0.2.1-SNAPSHOT</version>
 
 	<name>vd-commons-util</name>
 	<description>common utility functions and helpers</description>
@@ -19,7 +19,7 @@
 		<url>https://github.com/voomdoon/vd-commons-util</url>
 		<connection>scm:git:https://github.com/voomdoon/vd-commons-util.git</connection>
 		<developerConnection>scm:git:git@github.com:voomdoon/vd-commons-util.git</developerConnection>
-		<tag>0.2.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<dependencyManagement>
