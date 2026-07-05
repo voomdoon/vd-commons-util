@@ -18,6 +18,10 @@ public interface CharMatcher {
 	/**
 	 * Returns true if the given character matches this matcher.
 	 *
+	 * @param c
+	 *            character to test
+	 * @return {@code true} if the character matches
+	 *
 	 * @since 0.2.0
 	 */
 	boolean matches(char c);
